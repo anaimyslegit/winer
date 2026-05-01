@@ -1,0 +1,8 @@
+Telegram order server is running.
+Endpoint: http://127.0.0.1:8790/api/orders
+Health:   http://127.0.0.1:8790/health
+NP API:   http://127.0.0.1:8790/api/nova-poshta/warehouses?city=Kyiv
+Chat ID:  1009593325
+…„“…†„…ˆ…: Could not resolve Nova Poshta city reference for 'Kyiv'.
+…„“…†„…ˆ…: Could not resolve Nova Poshta city reference for 'Kyiv'.
+…„“…†„…ˆ…: Could not resolve Nova Poshta city reference for 'Kiev'.

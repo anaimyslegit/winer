@@ -1,0 +1,4027 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>VeloMotoAgroElectro - Магазин техніки та товарів в Україні</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Хедер */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 16px 0;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f2b3d, #1d7e4f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #4b5563;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2f;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: #15803d;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header-icons i {
+            font-size: 1.4rem;
+            color: #2d3e2b;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .header-icons i:hover {
+            transform: scale(1.05);
+            color: #166534;
+        }
+        #cartBtn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #cartBtn::after {
+            content: attr(data-cart-count);
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            border-radius: 999px;
+            background: #dc2626;
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            line-height: 18px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+        }
+        #cartBtn.has-items::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .account-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #dbe7d2;
+            border-radius: 999px;
+            background: #f4f7f0;
+            color: #1f5430;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            padding: 10px 16px;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+        }
+        .account-btn:hover {
+            background: #eaf2e2;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 18px -14px rgba(31, 84, 48, 0.7);
+        }
+        .account-btn i {
+            font-size: 1.1rem;
+        }
+        .account-label {
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(120deg, #eef2e6 0%, #d9e0cf 100%);
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 48px;
+            padding: 64px 0;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1b3b2b;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 24px 0;
+            color: #2f4858;
+            max-width: 500px;
+        }
+        .btn {
+            display: inline-block;
+            background: #2c6e3c;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn:hover {
+            background: #1f5430;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -10px rgba(34,97,54,0.4);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: 14rem;
+            color: #335e3b;
+            filter: drop-shadow(8px 12px 18px rgba(0,0,0,0.15));
+        }
+
+        /* Загальні стилі для секцій */
+        .categories, .products, .features, .contact-section {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 0 auto 48px;
+            display: block;
+            width: fit-content;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .section-title {
+                white-space: normal;
+                font-size: 1.8rem;
+                width: 100%;
+            }
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #2f855a;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* Категорії */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            justify-items: center;
+        }
+        .cat-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 20px;
+            text-align: center;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #e9ecef;
+            width: 100%;
+            max-width: 280px;
+        }
+        .cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+            border-color: #cbd5b6;
+        }
+        .cat-card i {
+            font-size: 3.2rem;
+            color: #3a7b4b;
+            margin-bottom: 20px;
+        }
+        .cat-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        /* Товари */
+        .product-tabs {
+            display: flex;
+            gap: 10px;
+            margin: -18px auto 28px;
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 4px 4px 12px;
+            scrollbar-width: thin;
+        }
+        .product-tab {
+            flex: 0 0 auto;
+            border: 1px solid #cfdec2;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #24523a;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            max-width: 230px;
+            padding: 10px 16px;
+            text-overflow: ellipsis;
+            transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .product-tab:hover {
+            transform: translateY(-1px);
+            border-color: #8fb578;
+        }
+        .product-tab.active {
+            background: #2c6e3c;
+            border-color: #2c6e3c;
+            color: #ffffff;
+        }
+        #productSubtabs {
+            margin-top: -16px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            justify-items: center;
+        }
+        .product-card {
+            background: white;
+            border-radius: 26px;
+            overflow: hidden;
+            transition: all 0.2s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            border: 1px solid #eef2e6;
+            width: 100%;
+            max-width: 320px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .product-purpose {
+            margin-top: 8px;
+            font-size: 0.88rem;
+            color: #3f5f48;
+            background: #f1f6ec;
+            border: 1px dashed #cfe0c2;
+            border-radius: 12px;
+            padding: 8px 10px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.2s ease, max-height 0.2s ease;
+        }
+        .product-card:hover .product-purpose {
+            opacity: 1;
+            max-height: 120px;
+        }
+        .product-img {
+            background: #f4f7f0;
+            padding: 32px 0;
+            text-align: center;
+        }
+        .product-img i {
+            font-size: 4.2rem;
+            color: #456b3e;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: left;
+        }
+        .product-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .price {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #1f5430;
+            margin: 12px 0;
+        }
+        .btn-small {
+            background: #f0f4ea;
+            color: #216b39;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .btn-small:hover {
+            background: #e0e9d5;
+            color: #0e4a22;
+        }
+
+        /* Переваги */
+        .features {
+            background: #eef2e6;
+            border-radius: 48px;
+            padding: 60px 24px;
+            margin: 70px auto;
+        }
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 32px;
+            justify-items: center;
+        }
+        .feat-item {
+            text-align: center;
+            max-width: 260px;
+        }
+        .feat-item i {
+            font-size: 2.5rem;
+            color: #327a48;
+            margin-bottom: 15px;
+        }
+        .feat-item h4 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* Контакти */
+        .contact-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 48px 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8d5;
+            text-align: left;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 260px;
+            text-align: left;
+        }
+        .contact-info h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .contact-details {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .contact-details i {
+            width: 30px;
+            color: #327a48;
+        }
+        .newsletter {
+            flex: 1;
+            background: #fafcf7;
+            padding: 28px;
+            border-radius: 32px;
+            text-align: center;
+        }
+        .newsletter input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 60px;
+            border: 1px solid #cfdec2;
+            margin: 16px 0;
+            font-size: 1rem;
+        }
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #dee6d5;
+            color: #5f6c5a;
+        }
+
+        .is-clickable {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .is-clickable:focus-visible {
+            outline: 3px solid rgba(47, 133, 90, 0.35);
+            outline-offset: 4px;
+        }
+
+        .logo.is-clickable:hover,
+        .feat-item.is-clickable:hover,
+        .cat-card.is-clickable:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-card.is-clickable {
+            cursor: pointer;
+        }
+
+        .product-card.is-highlighted {
+            border-color: #2f855a;
+            box-shadow: 0 18px 32px -18px rgba(47, 133, 90, 0.65);
+        }
+
+        .contact-details .is-clickable:hover,
+        .footer .is-clickable:hover,
+        .hero-image .is-clickable:hover {
+            color: #166534;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .auth-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.48);
+            z-index: 300;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        .auth-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .auth-card {
+            position: relative;
+            width: min(100%, 520px);
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 28px 60px -24px rgba(15, 23, 42, 0.35);
+        }
+        .auth-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #1f2937;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .auth-header {
+            margin-bottom: 24px;
+            padding-right: 42px;
+        }
+        .auth-kicker {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #2f855a;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .auth-header h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #102a43;
+        }
+        .auth-header p {
+            color: #52606d;
+            line-height: 1.55;
+        }
+        .auth-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+        .auth-tab {
+            border: 1px solid #d5e3cb;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #335e3b;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            padding: 12px 18px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        .auth-tab.active {
+            background: #2c6e3c;
+            color: #ffffff;
+            border-color: #2c6e3c;
+        }
+        .auth-form {
+            display: none;
+        }
+        .auth-form.active {
+            display: block;
+        }
+        .auth-field {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .auth-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #243b53;
+        }
+        .auth-field input,
+        .auth-field select,
+        .auth-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #cfdec2;
+            border-radius: 18px;
+            font: inherit;
+            background: #fbfcf9;
+        }
+        .auth-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .auth-field input:focus,
+        .auth-field select:focus,
+        .auth-field textarea:focus {
+            outline: none;
+            border-color: #2f855a;
+            box-shadow: 0 0 0 4px rgba(47, 133, 90, 0.12);
+        }
+        .auth-submit {
+            width: 100%;
+            margin-top: 8px;
+            border: none;
+            border-radius: 999px;
+            background: #2c6e3c;
+            color: #ffffff;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            padding: 14px 20px;
+        }
+        .auth-helper {
+            margin-top: 14px;
+            color: #52606d;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .auth-link {
+            border: none;
+            background: transparent;
+            color: #1f7a44;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            padding: 0;
+        }
+        .auth-feedback {
+            min-height: 24px;
+            margin-top: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .auth-feedback.error {
+            color: #b42318;
+        }
+        .auth-feedback.success {
+            color: #166534;
+        }
+        .account-summary {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+        .account-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 18px;
+            border-radius: 20px;
+            background: #f8fbf4;
+            border: 1px solid #e4eddc;
+        }
+        .account-row span {
+            color: #52606d;
+            font-weight: 600;
+        }
+        .account-row strong {
+            color: #102a43;
+            text-align: right;
+        }
+        .account-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .account-actions .btn-small {
+            flex: 1;
+        }
+        .account-actions .secondary {
+            background: #edf2e7;
+            color: #1f5430;
+        }
+        .cabinet-modal-card {
+            width: min(100%, 860px);
+        }
+        .cabinet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .cabinet-section {
+            border: 1px solid #e4eddc;
+            border-radius: 22px;
+            background: #fbfcf9;
+            padding: 16px;
+            min-height: 260px;
+        }
+        .cabinet-section h4 {
+            color: #102a43;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        .cabinet-list {
+            display: grid;
+            gap: 10px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+        .cabinet-item {
+            border: 1px solid #dce8d3;
+            border-radius: 16px;
+            background: #fff;
+            padding: 10px 12px;
+        }
+        .cabinet-item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 6px;
+            color: #102a43;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+        .cabinet-item p {
+            color: #52606d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .order-status-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 4px 10px;
+            background: #e7f5eb;
+            color: #166534;
+            font-size: 0.78rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .cabinet-auth-note {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .shop-modal-card {
+            width: min(100%, 760px);
+        }
+        .search-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #dbe7d2;
+            border-radius: 24px;
+            padding: 14px 18px;
+            background: #fbfcf9;
+        }
+        .search-bar i {
+            color: #2f855a;
+        }
+        .search-bar input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font: inherit;
+            font-size: 1rem;
+            color: #102a43;
+        }
+        .search-bar input:focus {
+            outline: none;
+        }
+        .search-results {
+            display: grid;
+            gap: 12px;
+            max-height: 52vh;
+            overflow-y: auto;
+        }
+        .search-result-card {
+            display: grid;
+            grid-template-columns: 64px 1fr auto;
+            gap: 14px;
+            align-items: center;
+            border: 1px solid #e4eddc;
+            border-radius: 24px;
+            background: #ffffff;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+        .search-result-card:hover {
+            transform: translateY(-2px);
+            border-color: #b6d4bb;
+            box-shadow: 0 14px 24px -18px rgba(17, 24, 39, 0.45);
+        }
+        .search-result-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: #eef2e6;
+            color: #2f855a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+        }
+        .search-result-text {
+            text-align: left;
+        }
+        .search-result-text h4 {
+            margin-bottom: 6px;
+            color: #102a43;
+            font-size: 1.02rem;
+        }
+        .search-result-text p {
+            color: #52606d;
+            line-height: 1.45;
+            font-size: 0.95rem;
+        }
+        .search-result-price {
+            color: #1f5430;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .empty-state {
+            border: 1px dashed #d7e5cf;
+            border-radius: 24px;
+            background: #fbfcf9;
+            padding: 28px 20px;
+            text-align: center;
+            color: #52606d;
+            line-height: 1.55;
+        }
+        .cart-list {
+            display: grid;
+            gap: 14px;
+            max-height: 42vh;
+            overflow-y: auto;
+            margin-bottom: 18px;
+        }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 56px 1fr auto;
+            gap: 14px;
+            align-items: center;
+            border: 1px solid #e4eddc;
+            border-radius: 22px;
+            background: #ffffff;
+            padding: 14px 16px;
+        }
+        .cart-item-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: #eef2e6;
+            color: #2f855a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+        }
+        .cart-item-info {
+            text-align: left;
+        }
+        .cart-item-info h4 {
+            margin-bottom: 6px;
+            font-size: 1rem;
+            color: #102a43;
+        }
+        .cart-item-info p {
+            color: #52606d;
+            font-size: 0.92rem;
+        }
+        .cart-item-controls {
+            display: grid;
+            gap: 10px;
+            justify-items: end;
+        }
+        .qty-control {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #dbe7d2;
+            border-radius: 999px;
+            padding: 4px;
+            background: #f8fbf4;
+        }
+        .qty-control button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background: #e6efe0;
+            color: #1f5430;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .qty-control span {
+            min-width: 18px;
+            text-align: center;
+            font-weight: 700;
+            color: #102a43;
+        }
+        .text-action {
+            border: none;
+            background: transparent;
+            color: #b42318;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+        .cart-summary {
+            display: grid;
+            gap: 12px;
+            border-top: 1px solid #e4eddc;
+            padding-top: 18px;
+        }
+        .cart-summary-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #243b53;
+        }
+        .cart-summary-row.total {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #102a43;
+        }
+        .cart-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .checkout-modal-card {
+            width: min(100%, 980px);
+        }
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
+            gap: 24px;
+            align-items: start;
+        }
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .checkout-grid .auth-field.full {
+            grid-column: 1 / -1;
+        }
+        .checkout-form-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .checkout-form-actions .btn-small,
+        .checkout-form-actions .auth-submit {
+            flex: 1;
+        }
+        .checkout-form-actions .secondary {
+            background: #edf2e7;
+            color: #1f5430;
+        }
+        .checkout-summary-card {
+            border: 1px solid #e4eddc;
+            border-radius: 28px;
+            background: linear-gradient(180deg, #fbfcf9 0%, #f4f8ef 100%);
+            padding: 20px;
+        }
+        .checkout-summary-head,
+        .checkout-summary-total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #102a43;
+        }
+        .checkout-summary-head {
+            margin-bottom: 14px;
+            font-weight: 800;
+        }
+        .checkout-summary-list {
+            display: grid;
+            gap: 12px;
+            max-height: 340px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+        }
+        .checkout-summary-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #e4eddc;
+        }
+        .checkout-summary-item strong {
+            color: #102a43;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .checkout-summary-item span {
+            color: #52606d;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+        .checkout-summary-price {
+            color: #1f5430;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .checkout-summary-total {
+            padding-top: 16px;
+            border-top: 1px solid #dbe7d2;
+            font-size: 1.08rem;
+            font-weight: 800;
+        }
+        .checkout-hint {
+            margin-top: 14px;
+            color: #52606d;
+            line-height: 1.55;
+            font-size: 0.94rem;
+        }
+        .checkout-feedback {
+            min-height: 24px;
+            margin-top: 16px;
+            font-weight: 700;
+            text-align: left;
+        }
+        .checkout-field-caption {
+            margin-top: 8px;
+            color: #52606d;
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+        .checkout-field-caption.error {
+            color: #b42318;
+        }
+        .checkout-field-caption.success {
+            color: #166534;
+        }
+        .checkout-feedback.error {
+            color: #b42318;
+        }
+        .checkout-feedback.success {
+            color: #166534;
+        }
+        .product-modal-card {
+            width: min(100%, 820px);
+        }
+        .product-modal-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        .product-modal-visual {
+            background: linear-gradient(180deg, #f1f6ea 0%, #e6efe0 100%);
+            border-radius: 28px;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2f855a;
+            font-size: 5rem;
+        }
+        .product-modal-meta h3 {
+            margin-bottom: 10px;
+            color: #102a43;
+            font-size: 2rem;
+            line-height: 1.1;
+        }
+        .product-modal-desc {
+            color: #52606d;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .product-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .product-chip {
+            border-radius: 999px;
+            background: #eef2e6;
+            color: #1f5430;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+        .product-modal-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .product-modal-actions .btn-small {
+            width: auto;
+            min-width: 180px;
+            padding: 12px 20px;
+        }
+        .product-modal-actions .secondary {
+            background: #edf2e7;
+            color: #1f5430;
+        }
+
+        @media (max-width: 780px) {
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+            }
+            .hero-image i {
+                font-size: 8rem;
+            }
+            .account-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .auth-card {
+                padding: 24px;
+            }
+            .account-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .account-row strong {
+                text-align: left;
+            }
+            .account-actions {
+                flex-direction: column;
+            }
+            .cabinet-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-result-card,
+            .cart-item,
+            .product-modal-layout,
+            .checkout-layout,
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-result-price,
+            .cart-item-controls {
+                justify-items: start;
+            }
+            .product-modal-visual {
+                min-height: 180px;
+                font-size: 4rem;
+            }
+            .cart-actions,
+            .product-modal-actions,
+            .checkout-form-actions {
+                flex-direction: column;
+            }
+            .product-modal-actions .btn-small,
+            .checkout-form-actions .btn-small,
+            .checkout-form-actions .auth-submit {
+                width: 100%;
+            }
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2937;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            z-index: 450;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>⚡ VELO MOTO AGRO <span>електротранспорт & техніка</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="#">Головна</a>
+            <a href="#">Велосипеди</a>
+            <a href="#">Мототехніка</a>
+            <a href="#">Агротовари</a>
+            <a href="#">Електротранспорт</a>
+            <a href="#" id="cabinetNavLink" data-nav-action="cabinet">Кабінет</a>
+            <a href="#">Контакти</a>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-search" id="searchBtn" tabindex="0" role="button" aria-label="Пошук"></i>
+            <i class="fas fa-heart" id="favoritesBtn" tabindex="0" role="button" aria-label="Обране"></i>
+            <i class="fas fa-shopping-cart" id="cartBtn" tabindex="0" role="button" aria-label="Кошик"></i>
+            <button class="account-btn" id="accountBtn" type="button" aria-label="Відкрити акаунт">
+                <i class="fas fa-user"></i>
+                <span class="account-label" id="accountLabel">Увійти</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>В русі <br> з природою та технологіями</h2>
+                <p>Велосипеди, мотоцикли, агрообладнання та електротранспорт — усе для активного життя та фермерства!</p>
+                <a href="#" class="btn">Каталог товарів <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-motorcycle"></i>
+                <div style="margin-top: 10px;"><i class="fas fa-tractor" style="font-size: 3rem; margin: 0 10px;"></i><i class="fas fa-bicycle" style="font-size: 3rem;"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Хіти продажів -->
+    <div class="container products">
+        <div class="product-tabs" id="productTabs" role="tablist" aria-label="Вкладки товарів"></div>
+        <div class="product-tabs hidden" id="productSubtabs" role="tablist" aria-label="Підкатегорії запчастин"></div>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="cart-actions hidden" id="productsPager">
+            <button class="btn-small" id="loadMoreProductsBtn" type="button" style="background:#2c6e3c; color:white;">Показати ще</button>
+            <span id="productsPagerInfo" style="color:#52606d; font-weight:600;"></span>
+        </div>
+    </div>
+
+    <!-- Контактна секція -->
+    <div class="container contact-section">
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h3>Зв'яжіться з нами</h3>
+                <p>Допоможемо підібрати техніку, проконсультуємо щодо наявності та акцій.</p>
+                <div class="contact-details">
+                    <div><i class="fas fa-map-marker-alt"></i> вул. Віктора Голого, 24, м.Знам'янка, Кіровоградська область, 27400</div>
+                    <div><i class="fas fa-phone-alt"></i> +38 (066) 722-36-52</div>
+                    <div><i class="fas fa-envelope"></i> makssuhrov21@gmail.com</div>
+                    <div><i class="fab fa-telegram"></i> +38 099 537-14-00 (Telegram)</div>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h4>📬 Будьте в курсі</h4>
+                <input type="email" placeholder="Ваш E-mail" id="subscribeEmail">
+                <button class="btn-small" id="subscribeBtn" style="background:#2c6e3c; color:white;">Підписатися</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="auth-close" id="authCloseBtn" type="button" aria-label="Закрити вікно">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div id="authGuestView">
+            <div class="auth-header">
+                <div class="auth-kicker">Особистий кабінет</div>
+                <h3 id="authTitle">Вхід та реєстрація</h3>
+                <p>Створіть акаунт або увійдіть, щоб зберегти свої дані та швидше оформлювати замовлення.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" type="button" data-auth-view="login">Вхід</button>
+                <button class="auth-tab" type="button" data-auth-view="register">Реєстрація</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm">
+                <div class="auth-field">
+                    <label for="loginEmail">E-mail</label>
+                    <input id="loginEmail" name="email" type="email" placeholder="example@email.com" autocomplete="email" required>
+                </div>
+                <div class="auth-field">
+                    <label for="loginPassword">Пароль</label>
+                    <input id="loginPassword" name="password" type="password" placeholder="Ваш пароль" autocomplete="current-password" required>
+                </div>
+                <button class="auth-submit" type="submit">Увійти в акаунт</button>
+                <div class="auth-helper">
+                    Немає акаунта?
+                    <button class="auth-link" type="button" data-switch-auth="register">Зареєструватися</button>
+                </div>
+            </form>
+
+            <form class="auth-form" id="registerForm">
+                <div class="auth-field">
+                    <label for="registerName">Ім'я</label>
+                    <input id="registerName" name="name" type="text" placeholder="Ваше ім'я" autocomplete="name" required>
+                </div>
+                <div class="auth-field">
+                    <label for="registerPhone">Телефон</label>
+                    <input id="registerPhone" name="phone" type="tel" placeholder="+38 0XX XXX XX XX" autocomplete="tel">
+                </div>
+                <div class="auth-field">
+                    <label for="registerEmail">E-mail</label>
+                    <input id="registerEmail" name="email" type="email" placeholder="example@email.com" autocomplete="email" required>
+                </div>
+                <div class="auth-field">
+                    <label for="registerPassword">Пароль</label>
+                    <input id="registerPassword" name="password" type="password" placeholder="Мінімум 6 символів" autocomplete="new-password" required>
+                </div>
+                <div class="auth-field">
+                    <label for="registerPasswordConfirm">Підтвердіть пароль</label>
+                    <input id="registerPasswordConfirm" name="passwordConfirm" type="password" placeholder="Повторіть пароль" autocomplete="new-password" required>
+                </div>
+                <button class="auth-submit" type="submit">Створити акаунт</button>
+                <div class="auth-helper">
+                    Уже зареєстровані?
+                    <button class="auth-link" type="button" data-switch-auth="login">Увійти</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="hidden" id="authAccountView">
+            <div class="auth-header">
+                <div class="auth-kicker">Ви увійшли</div>
+                <h3>Мій акаунт</h3>
+                <p>Дані користувача підтягнуті з локальної бази браузера і доступні на цій сторінці одразу після входу.</p>
+            </div>
+
+            <div class="account-summary">
+                <div class="account-row">
+                    <span>Ім'я</span>
+                    <strong id="accountNameValue">-</strong>
+                </div>
+                <div class="account-row">
+                    <span>E-mail</span>
+                    <strong id="accountEmailValue">-</strong>
+                </div>
+                <div class="account-row">
+                    <span>Телефон</span>
+                    <strong id="accountPhoneValue">Не вказано</strong>
+                </div>
+            </div>
+
+            <div class="account-actions">
+                <button class="btn-small secondary" id="changeAccountBtn" type="button">Змінити акаунт</button>
+                <button class="btn-small" id="authLogoutBtn" type="button" style="background:#2c6e3c; color:white;">Вийти</button>
+            </div>
+        </div>
+
+        <div class="auth-feedback" id="authFeedback"></div>
+    </div>
+</div>
+
+<div class="auth-modal" id="searchModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+        <button class="auth-close" type="button" data-close-modal="searchModal" aria-label="Закрити пошук">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-header">
+            <div class="auth-kicker">Пошук</div>
+            <h3 id="searchTitle">Знайти товар</h3>
+            <p>Шукайте по назві, опису або категорії. Результат відкриється як окрема картка товару.</p>
+        </div>
+        <div class="search-panel">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input id="searchInput" type="search" placeholder="Наприклад: велосипед, самокат, мотоблок" autocomplete="off">
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</div>
+
+<div class="auth-modal" id="cartModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <button class="auth-close" type="button" data-close-modal="cartModal" aria-label="Закрити кошик">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-header">
+            <div class="auth-kicker">Кошик</div>
+            <h3 id="cartTitle">Ваші товари</h3>
+            <p>Тут зберігаються додані товари, кількість та підсумкова сума. Кошик запам'ятовується в браузері.</p>
+        </div>
+        <div class="empty-state hidden" id="cartEmptyState">
+            У кошику поки нічого немає.<br>Додайте товар з каталогу або з картки товару.
+        </div>
+        <div class="cart-list" id="cartList"></div>
+        <div class="cart-summary hidden" id="cartSummary">
+            <div class="cart-summary-row">
+                <span>Позицій</span>
+                <strong id="cartItemsCount">0</strong>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Разом</span>
+                <strong id="cartTotal">0 ₴</strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-small secondary" id="clearCartBtn" type="button">Очистити</button>
+                <button class="btn-small" id="checkoutBtn" type="button" style="background:#2c6e3c; color:white;">Оформити</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="auth-modal" id="checkoutModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card checkout-modal-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <button class="auth-close" type="button" data-close-modal="checkoutModal" aria-label="Закрити оформлення">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-header">
+            <div class="auth-kicker">Оформлення</div>
+            <h3 id="checkoutTitle">Підтвердити замовлення</h3>
+            <p>Заповніть контакти та спосіб доставки. Після відправки заявка одразу прилетить у Telegram.</p>
+        </div>
+        <div class="checkout-layout">
+            <div>
+                <form id="checkoutForm">
+                    <div class="checkout-grid">
+                        <div class="auth-field">
+                            <label for="checkoutName">Ім'я</label>
+                            <input id="checkoutName" name="name" type="text" placeholder="Ваше ім'я" autocomplete="given-name" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutLastName">Прізвище</label>
+                            <input id="checkoutLastName" name="lastName" type="text" placeholder="Ваше прізвище" autocomplete="family-name" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutPhone">Телефон</label>
+                            <input id="checkoutPhone" name="phone" type="tel" placeholder="+38 0XX XXX XX XX" autocomplete="tel" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutEmail">E-mail</label>
+                            <input id="checkoutEmail" name="email" type="email" placeholder="example@email.com" autocomplete="email" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutRegion">Область</label>
+                            <input id="checkoutRegion" name="region" type="text" placeholder="Київська, Львівська..." autocomplete="address-level1" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutCity">Місто</label>
+                            <input id="checkoutCity" name="city" type="text" placeholder="Київ, Львів, Одеса..." autocomplete="address-level2" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutDelivery">Доставка</label>
+                            <select id="checkoutDelivery" name="delivery" required>
+                                <option value="nova-poshta-warehouse">Нова пошта у відділення</option>
+                                <option value="nova-poshta-courier">Нова пошта кур'єром</option>
+                                <option value="store-pickup">Самовивіз</option>
+                            </select>
+                        </div>
+                        <div class="auth-field full" id="checkoutWarehouseField">
+                            <label for="checkoutWarehouse">Відділення Нової пошти</label>
+                            <select id="checkoutWarehouse" name="warehouseRef" required>
+                                <option value="">Спочатку введіть місто</option>
+                            </select>
+                            <div class="checkout-field-caption" id="checkoutWarehouseHint">Введіть місто, і ми підтягнемо список відділень Нової пошти.</div>
+                        </div>
+                        <div class="auth-field">
+                            <label for="checkoutPayment">Оплата</label>
+                            <select id="checkoutPayment" name="payment" required>
+                                <option value="card">Оплата карткою</option>
+                                <option value="cash-on-delivery">Післяплата</option>
+                                <option value="bank-transfer">Безготівковий розрахунок</option>
+                            </select>
+                        </div>
+                        <div class="auth-field full">
+                            <label for="checkoutComment">Коментар до замовлення</label>
+                            <textarea id="checkoutComment" name="comment" placeholder="Наприклад: подзвонити перед відправкою, потрібна консультація по моделі"></textarea>
+                        </div>
+                    </div>
+                    <div class="checkout-form-actions">
+                        <button class="btn-small secondary" id="checkoutBackToCartBtn" type="button">Назад до кошика</button>
+                        <button class="auth-submit" id="submitOrderBtn" type="submit">Надіслати в Telegram</button>
+                    </div>
+                    <div class="checkout-feedback" id="checkoutFeedback"></div>
+                </form>
+            </div>
+            <div>
+                <div class="checkout-summary-card">
+                    <div class="checkout-summary-head">
+                        <span>Склад замовлення</span>
+                        <strong id="checkoutSummaryCount">0</strong>
+                    </div>
+                    <div class="checkout-summary-list" id="checkoutSummaryList"></div>
+                    <div class="checkout-summary-total">
+                        <span>Разом</span>
+                        <strong id="checkoutSummaryTotal">0 ₴</strong>
+                    </div>
+                    <p class="checkout-hint">Якщо Telegram-шлюз не запущений, форма підкаже команду для старту локального сервера замовлень.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="auth-modal" id="orderSuccessModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card" role="dialog" aria-modal="true" aria-labelledby="orderSuccessTitle">
+        <button class="auth-close" type="button" data-close-modal="orderSuccessModal" aria-label="Закрити підтвердження">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-header">
+            <div class="auth-kicker">Готово</div>
+            <h3 id="orderSuccessTitle">Замовлення прийнято</h3>
+            <p>Заявку надіслано в Telegram. Статус оплати можна переглянути в особистому кабінеті після підтвердження менеджером.</p>
+        </div>
+        <div class="account-summary" style="margin-top: 8px;">
+            <div class="account-row">
+                <span>Номер замовлення</span>
+                <strong id="orderSuccessOrderId">—</strong>
+            </div>
+        </div>
+        <button class="auth-submit" id="orderSuccessOkBtn" type="button">Зрозуміло</button>
+    </div>
+</div>
+
+<div class="auth-modal" id="cabinetModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card cabinet-modal-card" role="dialog" aria-modal="true" aria-labelledby="cabinetTitle">
+        <button class="auth-close" type="button" data-close-modal="cabinetModal" aria-label="Закрити кабінет">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-header">
+            <div class="auth-kicker">Особистий кабінет</div>
+            <h3 id="cabinetTitle">Ваші покупки та замовлення</h3>
+            <p>Тут зібрані останні покупки, актуальний кошик і статуси оформлених замовлень.</p>
+        </div>
+        <div class="cabinet-grid">
+            <section class="cabinet-section">
+                <h4>Останні покупки</h4>
+                <div class="cabinet-list" id="cabinetRecentPurchases"></div>
+            </section>
+            <section class="cabinet-section">
+                <h4>Кошик</h4>
+                <div class="cabinet-list" id="cabinetCartItems"></div>
+            </section>
+            <section class="cabinet-section">
+                <h4>Статуси замовлень</h4>
+                <div class="cabinet-list" id="cabinetOrderStatuses"></div>
+            </section>
+        </div>
+        <div class="cabinet-auth-note hidden" id="cabinetAuthNote">
+            <span>Щоб зберігати історію покупок у кабінеті, увійдіть в акаунт.</span>
+            <button class="btn-small" id="cabinetLoginBtn" type="button" style="background:#2c6e3c; color:white;">Увійти</button>
+        </div>
+    </div>
+</div>
+
+<div class="auth-modal" id="productModal" aria-hidden="true">
+    <div class="auth-card shop-modal-card product-modal-card" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+        <button class="auth-close" type="button" data-close-modal="productModal" aria-label="Закрити картку товару">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="product-modal-layout">
+            <div class="product-modal-visual">
+                <i class="fas fa-bicycle" id="productModalIcon"></i>
+            </div>
+            <div class="product-modal-meta">
+                <div class="auth-kicker" id="productModalCategory">Категорія</div>
+                <h3 id="productModalTitle">Товар</h3>
+                <div class="price" id="productModalPrice">0 ₴</div>
+                <p class="product-modal-desc" id="productModalDesc">Опис товару</p>
+                <div class="product-chips">
+                    <span class="product-chip" id="productModalDelivery">Доставка 2-5 днів</span>
+                    <span class="product-chip" id="productModalWarranty">Гарантія та сервіс</span>
+                    <span class="product-chip" id="productModalCategoryChip">Каталог</span>
+                </div>
+                <div class="product-modal-actions">
+                    <button class="btn-small secondary" id="productModalBackBtn" type="button">Назад до каталогу</button>
+                    <button class="btn-small" id="productModalAddBtn" type="button" style="background:#2c6e3c; color:white;">Додати в кошик</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer container">
+    <p>© 2025 VeloMotoAgroЕлектро — Ваш універсальний магазин техніки в Україні. Всі права захищені.</p>
+    <p style="margin-top: 12px;"><i class="fab fa-instagram"></i> <i class="fab fa-telegram"></i> <i class="fab fa-youtube"></i>    Ми в соцмережах</p>
+</footer>
+<div id="toastMsg" class="toast-msg">✔️ Товар додано в кошик</div>
+
+<script src="./products.generated.js"></script>
+<script>
+    const productsData = Array.isArray(window.PRODUCTS_DATA) ? [...window.PRODUCTS_DATA] : [];
+
+    const DB_NAME = "VeloMotoAgroElectroAccountsDB";
+    const DB_VERSION = 1;
+    const USERS_STORE = "users";
+    const SESSION_KEY = "veloMotoAgroElectroCurrentUser";
+    const CART_KEY = "veloMotoAgroElectroCart";
+    const GUEST_CART_KEY = `${CART_KEY}:guest`;
+    const ORDERS_KEY_PREFIX = "veloMotoAgroElectroOrders";
+    const PRODUCT_HASH_PREFIX = "#product=";
+    const LOCAL_API_BASE = "http://127.0.0.1:8793";
+    const ORDER_API_ENDPOINT = `${LOCAL_API_BASE}/api/orders`;
+    const ORDER_STATUS_API_ENDPOINT = `${LOCAL_API_BASE}/api/orders/status`;
+    const NOVA_POSHTA_WAREHOUSES_ENDPOINT = `${LOCAL_API_BASE}/api/nova-poshta/warehouses`;
+    const WAREHOUSE_CACHE_TTL_MS = 20 * 60 * 1000;
+    const WAREHOUSE_MIN_CITY_LENGTH = 3;
+
+    let currentUser = null;
+    let authDbPromise = null;
+    let preferredAuthView = "login";
+    let toastTimer = null;
+    let activeProductId = null;
+    let cartItems = [];
+    let isSubmittingOrder = false;
+    let warehouseLookupTimer = null;
+    let warehouseLookupRequestId = 0;
+    let activeWarehouseLookupController = null;
+    let lastLoadedWarehouseCity = "";
+    let activeProductTab = "all";
+    let activeProductSubtab = "all";
+    let renderedProductsCount = 0;
+    const PRODUCTS_PAGE_SIZE = 60;
+    const warehouseResultsCache = new Map();
+
+    const categoryLabels = {
+        bike: "Велосипеди",
+        moto: "Мототехніка",
+        agro: "Агротовари",
+        electro: "Електротранспорт",
+        parts: "Запчастини"
+    };
+
+    productsData.forEach((product, index) => {
+        product.id = `product-${index + 1}`;
+        product.numericPrice = Number(String(product.price).replace(/[^\d]/g, "")) || 0;
+        const subcatMap = [
+            { id: "engine", label: "Двигун", regex: /(двигун|порш|кільц|клапан|циліндр|картер|колінвал)/i },
+            { id: "fuel", label: "Паливна система", regex: /(карбюратор|палив|фільтр повітря|жиклер)/i },
+            { id: "transmission", label: "Трансмісія", regex: /(редуктор|ланцюг|зірк|сцеп|муфт|коробк)/i },
+            { id: "electrics", label: "Електрика", regex: /(котушк|стартер|генератор|свіч|датчик|реле)/i },
+            { id: "other", label: "Інше", regex: /.*/ }
+        ];
+        if (product.cat === "parts") {
+            const matchedSubcat = subcatMap.find((item) => item.regex.test(`${product.name} ${product.desc}`));
+            product.subcat = matchedSubcat ? matchedSubcat.id : "other";
+            product.subcatLabel = matchedSubcat ? matchedSubcat.label : "Інше";
+        } else {
+            product.subcat = "";
+            product.subcatLabel = "";
+        }
+        product.categoryLabel = categoryLabels[product.cat] || "Каталог";
+        product.delivery = "Доставка 2-5 днів";
+        product.warranty = "Гарантія та сервіс";
+        product.purpose = product.cat === "parts"
+            ? `Для чого: ${product.subcatLabel} / ${product.categoryLabel}`
+            : `Для чого: ${product.categoryLabel}`;
+    });
+
+    const ui = {
+        productTabs: document.getElementById("productTabs"),
+        productSubtabs: document.getElementById("productSubtabs"),
+        productGrid: document.getElementById("productGrid"),
+        productsPager: document.getElementById("productsPager"),
+        loadMoreProductsBtn: document.getElementById("loadMoreProductsBtn"),
+        productsPagerInfo: document.getElementById("productsPagerInfo"),
+        subscribeEmail: document.getElementById("subscribeEmail"),
+        subscribeBtn: document.getElementById("subscribeBtn"),
+        searchBtn: document.getElementById("searchBtn"),
+        favoritesBtn: document.getElementById("favoritesBtn"),
+        cartBtn: document.getElementById("cartBtn"),
+        accountBtn: document.getElementById("accountBtn"),
+        accountLabel: document.getElementById("accountLabel"),
+        cabinetNavLink: document.getElementById("cabinetNavLink"),
+        searchModal: document.getElementById("searchModal"),
+        searchInput: document.getElementById("searchInput"),
+        searchResults: document.getElementById("searchResults"),
+        cartModal: document.getElementById("cartModal"),
+        cartList: document.getElementById("cartList"),
+        cartSummary: document.getElementById("cartSummary"),
+        cartEmptyState: document.getElementById("cartEmptyState"),
+        cartItemsCount: document.getElementById("cartItemsCount"),
+        cartTotal: document.getElementById("cartTotal"),
+        clearCartBtn: document.getElementById("clearCartBtn"),
+        checkoutBtn: document.getElementById("checkoutBtn"),
+        checkoutModal: document.getElementById("checkoutModal"),
+        checkoutForm: document.getElementById("checkoutForm"),
+        checkoutName: document.getElementById("checkoutName"),
+        checkoutLastName: document.getElementById("checkoutLastName"),
+        checkoutPhone: document.getElementById("checkoutPhone"),
+        checkoutEmail: document.getElementById("checkoutEmail"),
+        checkoutRegion: document.getElementById("checkoutRegion"),
+        checkoutCity: document.getElementById("checkoutCity"),
+        checkoutDelivery: document.getElementById("checkoutDelivery"),
+        checkoutWarehouseField: document.getElementById("checkoutWarehouseField"),
+        checkoutWarehouse: document.getElementById("checkoutWarehouse"),
+        checkoutWarehouseHint: document.getElementById("checkoutWarehouseHint"),
+        checkoutPayment: document.getElementById("checkoutPayment"),
+        checkoutComment: document.getElementById("checkoutComment"),
+        checkoutSummaryList: document.getElementById("checkoutSummaryList"),
+        checkoutSummaryCount: document.getElementById("checkoutSummaryCount"),
+        checkoutSummaryTotal: document.getElementById("checkoutSummaryTotal"),
+        checkoutFeedback: document.getElementById("checkoutFeedback"),
+        checkoutBackToCartBtn: document.getElementById("checkoutBackToCartBtn"),
+        submitOrderBtn: document.getElementById("submitOrderBtn"),
+        orderSuccessModal: document.getElementById("orderSuccessModal"),
+        orderSuccessOrderId: document.getElementById("orderSuccessOrderId"),
+        orderSuccessOkBtn: document.getElementById("orderSuccessOkBtn"),
+        cabinetModal: document.getElementById("cabinetModal"),
+        cabinetRecentPurchases: document.getElementById("cabinetRecentPurchases"),
+        cabinetCartItems: document.getElementById("cabinetCartItems"),
+        cabinetOrderStatuses: document.getElementById("cabinetOrderStatuses"),
+        cabinetAuthNote: document.getElementById("cabinetAuthNote"),
+        cabinetLoginBtn: document.getElementById("cabinetLoginBtn"),
+        productModal: document.getElementById("productModal"),
+        productModalIcon: document.getElementById("productModalIcon"),
+        productModalCategory: document.getElementById("productModalCategory"),
+        productModalTitle: document.getElementById("productModalTitle"),
+        productModalPrice: document.getElementById("productModalPrice"),
+        productModalDesc: document.getElementById("productModalDesc"),
+        productModalCategoryChip: document.getElementById("productModalCategoryChip"),
+        productModalDelivery: document.getElementById("productModalDelivery"),
+        productModalWarranty: document.getElementById("productModalWarranty"),
+        productModalAddBtn: document.getElementById("productModalAddBtn"),
+        productModalBackBtn: document.getElementById("productModalBackBtn"),
+        authModal: document.getElementById("authModal"),
+        authCloseBtn: document.getElementById("authCloseBtn"),
+        authGuestView: document.getElementById("authGuestView"),
+        authAccountView: document.getElementById("authAccountView"),
+        authFeedback: document.getElementById("authFeedback"),
+        loginForm: document.getElementById("loginForm"),
+        registerForm: document.getElementById("registerForm"),
+        authTabs: document.querySelectorAll(".auth-tab"),
+        switchAuthButtons: document.querySelectorAll("[data-switch-auth]"),
+        changeAccountBtn: document.getElementById("changeAccountBtn"),
+        authLogoutBtn: document.getElementById("authLogoutBtn"),
+        accountNameValue: document.getElementById("accountNameValue"),
+        accountEmailValue: document.getElementById("accountEmailValue"),
+        accountPhoneValue: document.getElementById("accountPhoneValue")
+    };
+
+    function getAvailableCategoryTabs() {
+        const uniqueCategories = new Set(productsData.map((product) => product.cat).filter(Boolean));
+        const orderedCategories = ["bike", "moto", "agro", "electro", "parts"]
+            .filter((categoryKey) => categoryKey === "parts" || uniqueCategories.has(categoryKey));
+        return orderedCategories.map((categoryKey) => ({
+            id: categoryKey,
+            label: categoryLabels[categoryKey] || "Категорія"
+        }));
+    }
+
+    function getAvailablePartSubtabs() {
+        const subtabs = productsData
+            .filter((product) => product.cat === "parts" && product.subcat)
+            .map((product) => ({ id: product.subcat, label: product.subcatLabel || "Інше" }));
+        const unique = [];
+        const seen = new Set();
+        subtabs.forEach((tab) => {
+            if (seen.has(tab.id)) {
+                return;
+            }
+            seen.add(tab.id);
+            unique.push(tab);
+        });
+        return unique;
+    }
+
+    function renderProductTabs() {
+        if (!ui.productTabs) {
+            return;
+        }
+
+        const tabs = [
+            { id: "all", label: "Усі товари" },
+            ...getAvailableCategoryTabs()
+        ];
+
+        ui.productTabs.innerHTML = tabs.map((tab) => `
+            <button class="product-tab${activeProductTab === tab.id ? " active" : ""}" type="button" role="tab" aria-selected="${activeProductTab === tab.id}" data-product-tab="${tab.id}">
+                ${tab.label}
+            </button>
+        `).join("");
+    }
+
+    function renderProductSubtabs() {
+        if (!ui.productSubtabs) {
+            return;
+        }
+        if (activeProductTab !== "parts") {
+            ui.productSubtabs.classList.add("hidden");
+            ui.productSubtabs.innerHTML = "";
+            return;
+        }
+
+        const subtabs = [
+            { id: "all", label: "Усі запчастини" },
+            ...getAvailablePartSubtabs()
+        ];
+        ui.productSubtabs.classList.remove("hidden");
+        ui.productSubtabs.innerHTML = subtabs.map((tab) => `
+            <button class="product-tab${activeProductSubtab === tab.id ? " active" : ""}" type="button" role="tab" aria-selected="${activeProductSubtab === tab.id}" data-product-subtab="${tab.id}">
+                ${tab.label}
+            </button>
+        `).join("");
+    }
+
+    function setActiveProductTab(tabId = "all") {
+        const isKnownCategory = getAvailableCategoryTabs().some((tab) => tab.id === tabId);
+        activeProductTab = tabId === "all" || isKnownCategory ? tabId : "all";
+        renderedProductsCount = 0;
+        if (activeProductTab !== "parts") {
+            activeProductSubtab = "all";
+        }
+        renderProductTabs();
+        renderProductSubtabs();
+        renderProducts();
+    }
+
+    function setActiveProductSubtab(subtabId = "all") {
+        const isKnownSubtab = getAvailablePartSubtabs().some((tab) => tab.id === subtabId);
+        activeProductSubtab = subtabId === "all" || isKnownSubtab ? subtabId : "all";
+        renderedProductsCount = 0;
+        renderProductSubtabs();
+        renderProducts();
+    }
+
+    function getVisibleProducts() {
+        let visible = activeProductTab === "all"
+            ? productsData
+            : productsData.filter((product) => product.cat === activeProductTab);
+
+        if (activeProductTab === "parts" && activeProductSubtab !== "all") {
+            visible = visible.filter((product) => product.subcat === activeProductSubtab);
+        }
+        return visible;
+    }
+
+    function renderProducts() {
+        if (!ui.productGrid) {
+            return;
+        }
+
+        ui.productGrid.innerHTML = "";
+        const visibleProducts = getVisibleProducts();
+        const displayCount = renderedProductsCount > 0
+            ? Math.min(renderedProductsCount, visibleProducts.length)
+            : Math.min(PRODUCTS_PAGE_SIZE, visibleProducts.length);
+        renderedProductsCount = displayCount;
+
+        visibleProducts.slice(0, displayCount).forEach((prod) => {
+            const card = document.createElement("div");
+            card.className = "product-card is-clickable";
+            card.dataset.productId = prod.id;
+            card.tabIndex = 0;
+            card.setAttribute("role", "button");
+            card.setAttribute("aria-label", `Відкрити ${prod.name}`);
+            card.setAttribute("title", prod.purpose || `Для чого: ${prod.desc}`);
+            card.innerHTML = `
+                <div class="product-img">
+                    <i class="fas ${prod.icon}"></i>
+                </div>
+                <div class="product-info">
+                    <h3>${prod.name}</h3>
+                    <div class="product-desc">${prod.desc}</div>
+                    <div class="product-purpose">${prod.purpose || `Для чого: ${prod.desc}`}</div>
+                    <div class="price">${prod.price}</div>
+                    <button class="btn-small add-to-cart" data-name="${prod.name}" data-product-id="${prod.id}">В кошик <i class="fas fa-shopping-cart"></i></button>
+                </div>
+            `;
+            ui.productGrid.appendChild(card);
+        });
+
+        if (ui.productsPager && ui.productsPagerInfo && ui.loadMoreProductsBtn) {
+            const hasMore = displayCount < visibleProducts.length;
+            ui.productsPager.classList.toggle("hidden", visibleProducts.length <= PRODUCTS_PAGE_SIZE);
+            ui.loadMoreProductsBtn.classList.toggle("hidden", !hasMore);
+            ui.productsPagerInfo.textContent = `Показано ${displayCount} з ${visibleProducts.length}`;
+        }
+    }
+
+    function showToastMessage(message, durationMs = 2200) {
+        const toast = document.getElementById("toastMsg");
+        if (!toast) {
+            return;
+        }
+
+        toast.textContent = message;
+        toast.style.opacity = "1";
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => {
+            toast.style.opacity = "0";
+        }, durationMs);
+    }
+
+    function openOrderSuccessModal(orderId) {
+        if (ui.orderSuccessOrderId) {
+            ui.orderSuccessOrderId.textContent = orderId || "—";
+        }
+        openOverlay(ui.orderSuccessModal);
+    }
+
+    function closeOrderSuccessModal() {
+        if (ui.orderSuccessModal) {
+            closeOverlay(ui.orderSuccessModal);
+        }
+    }
+
+    function findProductById(productId) {
+        return productsData.find((product) => product.id === productId) || null;
+    }
+
+    function formatPrice(value) {
+        return `${Number(value || 0).toLocaleString("uk-UA")} ₴`;
+    }
+
+    function getCartTotalCount(items = cartItems) {
+        return sanitizeCartItems(items).reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    function syncModalState() {
+        const hasOpenModal = Boolean(document.querySelector(".auth-modal.open"));
+        document.body.classList.toggle("modal-open", hasOpenModal);
+    }
+
+    function openOverlay(modal) {
+        if (!modal) {
+            return;
+        }
+
+        document.querySelectorAll(".auth-modal.open").forEach((openedModal) => {
+            if (openedModal !== modal) {
+                if (openedModal.id === "productModal") {
+                    activeProductId = null;
+                    clearProductHash();
+                }
+                openedModal.classList.remove("open");
+                openedModal.setAttribute("aria-hidden", "true");
+            }
+        });
+
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        syncModalState();
+    }
+
+    function closeOverlay(modal) {
+        if (!modal) {
+            return;
+        }
+
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        syncModalState();
+    }
+
+    function sanitizeCartItems(items) {
+        if (!Array.isArray(items)) {
+            return [];
+        }
+
+        return items
+            .map((item) => ({
+                productId: item && item.productId ? String(item.productId) : "",
+                quantity: Math.max(0, Number(item && item.quantity) || 0)
+            }))
+            .filter((item) => item.productId && item.quantity > 0);
+    }
+
+    function mergeCartItems(baseItems = [], extraItems = []) {
+        const cartMap = new Map();
+
+        [...sanitizeCartItems(baseItems), ...sanitizeCartItems(extraItems)].forEach((item) => {
+            const currentQty = cartMap.get(item.productId) || 0;
+            cartMap.set(item.productId, currentQty + item.quantity);
+        });
+
+        return Array.from(cartMap.entries()).map(([productId, quantity]) => ({ productId, quantity }));
+    }
+
+    function loadGuestCart() {
+        try {
+            const storedGuestCart = localStorage.getItem(GUEST_CART_KEY);
+            const legacyCart = localStorage.getItem(CART_KEY);
+            const rawCart = storedGuestCart ?? legacyCart ?? "[]";
+            const parsedCart = JSON.parse(rawCart);
+            const normalizedCart = sanitizeCartItems(parsedCart);
+
+            if (legacyCart && storedGuestCart === null) {
+                localStorage.setItem(GUEST_CART_KEY, JSON.stringify(normalizedCart));
+                localStorage.removeItem(CART_KEY);
+            }
+
+            return normalizedCart;
+        } catch (error) {
+            console.error("Не вдалося прочитати кошик:", error);
+            return [];
+        }
+    }
+
+    function loadCart() {
+        if (currentUser) {
+            return sanitizeCartItems(currentUser.cart);
+        }
+
+        return loadGuestCart();
+    }
+
+    function saveGuestCart(items) {
+        localStorage.setItem(GUEST_CART_KEY, JSON.stringify(sanitizeCartItems(items)));
+        localStorage.removeItem(CART_KEY);
+    }
+
+    function saveCart() {
+        cartItems = sanitizeCartItems(cartItems);
+
+        if (!currentUser) {
+            saveGuestCart(cartItems);
+            return;
+        }
+
+        persistCartForCurrentUser(cartItems).catch((error) => {
+            console.error("Не вдалося зберегти кошик акаунта:", error);
+        });
+    }
+
+    function getCartDetailedItems() {
+        return cartItems
+            .map((item) => {
+                const product = findProductById(item.productId);
+                if (!product) {
+                    return null;
+                }
+
+                return {
+                    ...item,
+                    product,
+                    subtotal: product.numericPrice * item.quantity
+                };
+            })
+            .filter(Boolean);
+    }
+
+    function updateCartBadge() {
+        if (!ui.cartBtn) {
+            return;
+        }
+
+        const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        ui.cartBtn.dataset.cartCount = totalCount;
+        ui.cartBtn.classList.toggle("has-items", totalCount > 0);
+        ui.cartBtn.setAttribute("aria-label", totalCount > 0 ? `Кошик, ${totalCount} товарів` : "Кошик");
+
+        if (ui.cartItemsCount) {
+            ui.cartItemsCount.textContent = totalCount;
+        }
+    }
+
+    function renderCart() {
+        if (!ui.cartList || !ui.cartSummary || !ui.cartEmptyState || !ui.cartTotal) {
+            return;
+        }
+
+        const cartDetailedItems = getCartDetailedItems();
+        const totalPrice = cartDetailedItems.reduce((sum, item) => sum + item.subtotal, 0);
+        ui.cartList.innerHTML = "";
+
+        if (!cartDetailedItems.length) {
+            ui.cartEmptyState.classList.remove("hidden");
+            ui.cartSummary.classList.add("hidden");
+            updateCartBadge();
+            return;
+        }
+
+        ui.cartEmptyState.classList.add("hidden");
+        ui.cartSummary.classList.remove("hidden");
+        ui.cartTotal.textContent = formatPrice(totalPrice);
+
+        cartDetailedItems.forEach((item) => {
+            const cartCard = document.createElement("div");
+            cartCard.className = "cart-item";
+            cartCard.innerHTML = `
+                <div class="cart-item-icon"><i class="fas ${item.product.icon}"></i></div>
+                <div class="cart-item-info">
+                    <h4>${item.product.name}</h4>
+                    <p>${item.product.categoryLabel}</p>
+                    <strong>${formatPrice(item.subtotal)}</strong>
+                </div>
+                <div class="cart-item-controls">
+                    <div class="qty-control">
+                        <button type="button" class="cart-qty-btn" data-action="decrease" data-product-id="${item.productId}">-</button>
+                        <span>${item.quantity}</span>
+                        <button type="button" class="cart-qty-btn" data-action="increase" data-product-id="${item.productId}">+</button>
+                    </div>
+                    <button type="button" class="text-action cart-remove-btn" data-product-id="${item.productId}">Видалити</button>
+                </div>
+            `;
+            ui.cartList.appendChild(cartCard);
+        });
+
+        updateCartBadge();
+        if (ui.cabinetModal?.classList.contains("open")) {
+            renderCabinet();
+        }
+    }
+
+    function setCartItemQuantity(productId, quantity) {
+        const normalizedQty = Math.max(0, Number(quantity) || 0);
+        const existingItem = cartItems.find((item) => item.productId === productId);
+
+        if (!existingItem && normalizedQty > 0) {
+            cartItems.push({ productId, quantity: normalizedQty });
+        } else if (existingItem && normalizedQty > 0) {
+            existingItem.quantity = normalizedQty;
+        } else if (existingItem && normalizedQty === 0) {
+            cartItems = cartItems.filter((item) => item.productId !== productId);
+        }
+
+        saveCart();
+        renderCart();
+    }
+
+    function addToCart(productId, quantity = 1) {
+        const product = findProductById(productId);
+        if (!product) {
+            return;
+        }
+
+        const existingItem = cartItems.find((item) => item.productId === productId);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cartItems.push({ productId, quantity });
+        }
+
+        saveCart();
+        renderCart();
+        showToastMessage(`🛒 ${product.name} додано в кошик!`);
+    }
+
+    function getOrderHistoryKey() {
+        const emailPart = currentUser?.email ? normalizeEmail(currentUser.email) : "guest";
+        return `${ORDERS_KEY_PREFIX}:${emailPart}`;
+    }
+
+    function loadOrderHistory() {
+        try {
+            const parsed = JSON.parse(localStorage.getItem(getOrderHistoryKey()) || "[]");
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            console.error("Не вдалося прочитати історію замовлень:", error);
+            return [];
+        }
+    }
+
+    function saveOrderHistory(historyItems) {
+        localStorage.setItem(getOrderHistoryKey(), JSON.stringify(Array.isArray(historyItems) ? historyItems : []));
+    }
+
+    function mapOrderStatusLabel(statusCode = "", fallbackLabel = "") {
+        const labels = {
+            payment_pending: "Очікує підтвердження оплати",
+            payment_confirmed: "Оплату підтверджено",
+            payment_rejected: "Оплату відхилено"
+        };
+        return labels[String(statusCode || "").trim()] || fallbackLabel || "В обробці";
+    }
+
+    function rememberOrder(orderPayload, response = {}) {
+        if (!orderPayload) {
+            return;
+        }
+
+        const history = loadOrderHistory();
+        const orderId = String(response.orderId || `WEB-${Date.now()}`);
+        const status = mapOrderStatusLabel(response.status, String(response.statusLabel || "Прийнято"));
+
+        history.unshift({
+            id: orderId,
+            status,
+            createdAt: orderPayload.createdAt || new Date().toISOString(),
+            total: orderPayload.totals?.formattedTotal || formatPrice(orderPayload.totals?.totalPrice || 0),
+            quantity: orderPayload.totals?.quantity || 0,
+            items: Array.isArray(orderPayload.items) ? orderPayload.items : []
+        });
+
+        saveOrderHistory(history.slice(0, 20));
+    }
+
+    async function syncOrderStatusesFromServer() {
+        const history = loadOrderHistory();
+        if (!history.length) {
+            return;
+        }
+
+        const orderIds = history
+            .map((item) => String(item.id || "").trim())
+            .filter((id) => id.startsWith("ORD-"));
+
+        if (!orderIds.length) {
+            return;
+        }
+
+        try {
+            const params = new URLSearchParams({
+                orderIds: orderIds.join(",")
+            });
+            const response = await fetch(`${ORDER_STATUS_API_ENDPOINT}?${params.toString()}`);
+            const payload = await response.json();
+            if (!response.ok || !payload?.ok || !Array.isArray(payload.items)) {
+                return;
+            }
+
+            const statusMap = new Map(
+                payload.items.map((item) => [
+                    String(item.orderId || ""),
+                    mapOrderStatusLabel(item.status, String(item.statusLabel || "В обробці"))
+                ])
+            );
+            let hasChanges = false;
+            const updatedHistory = history.map((item) => {
+                const nextStatus = statusMap.get(String(item.id || ""));
+                if (!nextStatus || nextStatus === item.status) {
+                    return item;
+                }
+
+                hasChanges = true;
+                return {
+                    ...item,
+                    status: nextStatus
+                };
+            });
+
+            if (hasChanges) {
+                saveOrderHistory(updatedHistory);
+            }
+        } catch (error) {
+            console.warn("Не вдалося оновити статуси замовлень:", error);
+        }
+    }
+
+    function formatOrderDate(isoDate) {
+        const parsed = new Date(isoDate || Date.now());
+        return Number.isNaN(parsed.getTime()) ? "-" : parsed.toLocaleString("uk-UA");
+    }
+
+    function renderCabinet() {
+        if (!ui.cabinetRecentPurchases || !ui.cabinetCartItems || !ui.cabinetOrderStatuses) {
+            return;
+        }
+
+        const orderHistory = loadOrderHistory();
+        const recentOrders = orderHistory.slice(0, 5);
+        const cartDetailedItems = getCartDetailedItems();
+
+        ui.cabinetRecentPurchases.innerHTML = recentOrders.length
+            ? recentOrders.map((order) => `
+                <article class="cabinet-item">
+                    <div class="cabinet-item-head">
+                        <span>#${order.id}</span>
+                        <span>${order.total || "-"}</span>
+                    </div>
+                    <p>${formatOrderDate(order.createdAt)} · ${order.quantity || 0} шт.</p>
+                </article>
+            `).join("")
+            : `<div class="empty-state">Покупок поки немає.</div>`;
+
+        ui.cabinetCartItems.innerHTML = cartDetailedItems.length
+            ? cartDetailedItems.map((item) => `
+                <article class="cabinet-item">
+                    <div class="cabinet-item-head">
+                        <span>${item.product.name}</span>
+                        <span>${formatPrice(item.subtotal)}</span>
+                    </div>
+                    <p>${item.quantity} шт. · ${item.product.categoryLabel}</p>
+                </article>
+            `).join("")
+            : `<div class="empty-state">Кошик порожній.</div>`;
+
+        ui.cabinetOrderStatuses.innerHTML = recentOrders.length
+            ? recentOrders.map((order) => `
+                <article class="cabinet-item">
+                    <div class="cabinet-item-head">
+                        <span>#${order.id}</span>
+                        <span class="order-status-badge">${order.status || "В обробці"}</span>
+                    </div>
+                    <p>Оновлено: ${formatOrderDate(order.createdAt)}</p>
+                </article>
+            `).join("")
+            : `<div class="empty-state">Статуси з'являться після першого замовлення.</div>`;
+
+        ui.cabinetAuthNote?.classList.toggle("hidden", Boolean(currentUser));
+    }
+
+    function openCabinetModal() {
+        renderCabinet();
+        openOverlay(ui.cabinetModal);
+        syncOrderStatusesFromServer().then(() => {
+            if (ui.cabinetModal?.classList.contains("open")) {
+                renderCabinet();
+            }
+        });
+    }
+
+    function renderSearchResults(query = "") {
+        if (!ui.searchResults) {
+            return;
+        }
+
+        const normalizedQuery = query.trim().toLowerCase();
+        const matchedProducts = normalizedQuery
+            ? productsData.filter((product) => {
+                const haystack = `${product.name} ${product.desc} ${product.categoryLabel}`.toLowerCase();
+                return haystack.includes(normalizedQuery);
+            })
+            : productsData.slice(0, 6);
+
+        if (!matchedProducts.length) {
+            ui.searchResults.innerHTML = `<div class="empty-state">Нічого не знайдено. Спробуйте іншу назву або категорію.</div>`;
+            return;
+        }
+
+        ui.searchResults.innerHTML = matchedProducts.map((product) => `
+            <div class="search-result-card" data-open-product="${product.id}" tabindex="0" role="button" aria-label="Відкрити ${product.name}">
+                <div class="search-result-icon"><i class="fas ${product.icon}"></i></div>
+                <div class="search-result-text">
+                    <h4>${product.name}</h4>
+                    <p>${product.desc}</p>
+                </div>
+                <div class="search-result-price">${product.price}</div>
+            </div>
+        `).join("");
+    }
+
+    function updateProductHash(productId) {
+        const nextHash = `${PRODUCT_HASH_PREFIX}${productId}`;
+        if (window.location.hash !== nextHash) {
+            window.location.hash = nextHash;
+        }
+    }
+
+    function clearProductHash() {
+        if (window.location.hash.startsWith(PRODUCT_HASH_PREFIX)) {
+            history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+        }
+    }
+
+    function openProductModal(productId) {
+        const product = findProductById(productId);
+        if (!product || !ui.productModal) {
+            return;
+        }
+
+        activeProductId = productId;
+        ui.productModalIcon.className = `fas ${product.icon}`;
+        ui.productModalCategory.textContent = product.categoryLabel;
+        ui.productModalTitle.textContent = product.name;
+        ui.productModalPrice.textContent = product.price;
+        ui.productModalDesc.textContent = product.desc;
+        ui.productModalCategoryChip.textContent = product.categoryLabel;
+        ui.productModalDelivery.textContent = product.delivery;
+        ui.productModalWarranty.textContent = product.warranty;
+        ui.productModalAddBtn.dataset.productId = product.id;
+        openOverlay(ui.productModal);
+        updateProductHash(product.id);
+    }
+
+    function closeProductModal() {
+        activeProductId = null;
+        closeOverlay(ui.productModal);
+        clearProductHash();
+    }
+
+    function openSearchModal() {
+        renderSearchResults(ui.searchInput?.value || "");
+        openOverlay(ui.searchModal);
+        window.setTimeout(() => ui.searchInput?.focus(), 30);
+    }
+
+    function closeSearchModal() {
+        closeOverlay(ui.searchModal);
+    }
+
+    function openCartModal() {
+        renderCart();
+        openOverlay(ui.cartModal);
+    }
+
+    function closeCartModal() {
+        closeOverlay(ui.cartModal);
+    }
+
+    function setCheckoutFeedback(message = "", type = "") {
+        if (!ui.checkoutFeedback) {
+            return;
+        }
+
+        ui.checkoutFeedback.textContent = message;
+        ui.checkoutFeedback.className = "checkout-feedback";
+        if (type) {
+            ui.checkoutFeedback.classList.add(type);
+        }
+    }
+
+    function setCheckoutSubmitting(isSubmitting) {
+        isSubmittingOrder = isSubmitting;
+
+        if (ui.submitOrderBtn) {
+            ui.submitOrderBtn.disabled = isSubmitting;
+            ui.submitOrderBtn.textContent = isSubmitting ? "Відправляємо..." : "Надіслати в Telegram";
+        }
+
+        if (ui.checkoutBackToCartBtn) {
+            ui.checkoutBackToCartBtn.disabled = isSubmitting;
+        }
+    }
+
+    function requiresNovaPoshtaWarehouse(deliveryValue = ui.checkoutDelivery?.value) {
+        return String(deliveryValue || "") === "nova-poshta-warehouse";
+    }
+
+    function setCheckoutWarehouseHint(message = "", type = "") {
+        if (!ui.checkoutWarehouseHint) {
+            return;
+        }
+
+        ui.checkoutWarehouseHint.textContent = message;
+        ui.checkoutWarehouseHint.className = "checkout-field-caption";
+        if (type) {
+            ui.checkoutWarehouseHint.classList.add(type);
+        }
+    }
+
+    function clearCheckoutWarehouseOptions(placeholder = "Спочатку введіть місто") {
+        if (!ui.checkoutWarehouse) {
+            return;
+        }
+
+        ui.checkoutWarehouse.innerHTML = `<option value="">${placeholder}</option>`;
+        ui.checkoutWarehouse.value = "";
+    }
+
+    function getWarehouseCacheKey(city, region = "") {
+        return `${String(city || "").trim().toLowerCase()}|${String(region || "").trim().toLowerCase()}`;
+    }
+
+    function getCachedWarehouses(city, region = "") {
+        const cacheKey = getWarehouseCacheKey(city, region);
+        if (!cacheKey) {
+            return null;
+        }
+
+        const cachedEntry = warehouseResultsCache.get(cacheKey);
+        if (!cachedEntry) {
+            return null;
+        }
+
+        if (cachedEntry.expiresAt <= Date.now()) {
+            warehouseResultsCache.delete(cacheKey);
+            return null;
+        }
+
+        return cachedEntry.warehouses;
+    }
+
+    function cacheWarehouses(city, region, warehouses) {
+        const cacheKey = getWarehouseCacheKey(city, region);
+        if (!cacheKey) {
+            return;
+        }
+
+        const normalizedWarehouses = Array.isArray(warehouses) ? warehouses : [];
+        if (!normalizedWarehouses.length) {
+            warehouseResultsCache.delete(cacheKey);
+            return;
+        }
+
+        warehouseResultsCache.set(cacheKey, {
+            warehouses: normalizedWarehouses,
+            expiresAt: Date.now() + WAREHOUSE_CACHE_TTL_MS
+        });
+    }
+
+    function abortWarehouseLookup() {
+        if (activeWarehouseLookupController) {
+            activeWarehouseLookupController.abort();
+            activeWarehouseLookupController = null;
+        }
+    }
+
+    function renderCheckoutWarehouseOptions(warehouses, previousValue = "") {
+        if (!ui.checkoutWarehouse) {
+            return;
+        }
+
+        ui.checkoutWarehouse.innerHTML = `<option value="">Select a branch</option>`;
+
+        const fragment = document.createDocumentFragment();
+        warehouses.forEach((warehouse) => {
+            const option = document.createElement("option");
+            option.value = warehouse.ref;
+            option.textContent = warehouse.label || warehouse.shortAddress || "Р’С–РґРґС–Р»РµРЅРЅСЏ РќРѕРІРѕС— РїРѕС€С‚Рё";
+            option.dataset.label = warehouse.label || "";
+            option.dataset.shortAddress = warehouse.shortAddress || "";
+            option.dataset.number = warehouse.number || "";
+            fragment.appendChild(option);
+        });
+
+        ui.checkoutWarehouse.appendChild(fragment);
+
+        if (previousValue && [...ui.checkoutWarehouse.options].some((option) => option.value === previousValue)) {
+            ui.checkoutWarehouse.value = previousValue;
+        }
+    }
+
+    function syncCheckoutWarehouseField() {
+        if (!ui.checkoutWarehouseField || !ui.checkoutWarehouse) {
+            return;
+        }
+
+        const shouldShowWarehouse = requiresNovaPoshtaWarehouse();
+        ui.checkoutWarehouseField.classList.toggle("hidden", !shouldShowWarehouse);
+        ui.checkoutWarehouse.required = shouldShowWarehouse;
+        ui.checkoutWarehouse.disabled = !shouldShowWarehouse;
+
+        if (!shouldShowWarehouse) {
+            window.clearTimeout(warehouseLookupTimer);
+            abortWarehouseLookup();
+            lastLoadedWarehouseCity = "";
+            abortWarehouseLookup();
+            clearCheckoutWarehouseOptions("Вибір відділення не потрібен");
+            setCheckoutWarehouseHint("Для цього способу доставки вибір відділення не потрібен.");
+            return;
+        }
+
+        if (!ui.checkoutCity?.value.trim()) {
+            clearCheckoutWarehouseOptions("Спочатку введіть місто");
+            setCheckoutWarehouseHint("Введіть місто, і ми підтягнемо список відділень Нової пошти.");
+            return;
+        }
+
+        setCheckoutWarehouseHint("Вкажіть місто або оберіть відділення зі списку нижче.");
+    }
+
+    function prefillCheckoutForm() {
+        if (!ui.checkoutForm) {
+            return;
+        }
+
+        if (currentUser) {
+            ui.checkoutName.value = currentUser.name || "";
+            ui.checkoutLastName.value = currentUser.lastName || "";
+            ui.checkoutPhone.value = currentUser.phone || "";
+            ui.checkoutEmail.value = currentUser.email || "";
+            ui.checkoutRegion.value = currentUser.region || "";
+        } else if (!ui.checkoutEmail.value && ui.subscribeEmail?.value) {
+            ui.checkoutEmail.value = ui.subscribeEmail.value.trim();
+        }
+
+        syncCheckoutWarehouseField();
+    }
+
+    function renderCheckoutSummary() {
+        if (!ui.checkoutSummaryList || !ui.checkoutSummaryCount || !ui.checkoutSummaryTotal) {
+            return;
+        }
+
+        const cartDetailedItems = getCartDetailedItems();
+        const totalPrice = cartDetailedItems.reduce((sum, item) => sum + item.subtotal, 0);
+        const totalCount = getCartTotalCount();
+
+        ui.checkoutSummaryCount.textContent = `${totalCount} шт.`;
+        ui.checkoutSummaryTotal.textContent = formatPrice(totalPrice);
+
+        if (!cartDetailedItems.length) {
+            ui.checkoutSummaryList.innerHTML = `<div class="empty-state">У кошику немає товарів для оформлення.</div>`;
+            return;
+        }
+
+        ui.checkoutSummaryList.innerHTML = cartDetailedItems.map((item) => `
+            <div class="checkout-summary-item">
+                <div>
+                    <strong>${item.product.name}</strong>
+                    <span>${item.product.categoryLabel} · ${item.quantity} шт.</span>
+                </div>
+                <div class="checkout-summary-price">${formatPrice(item.subtotal)}</div>
+            </div>
+        `).join("");
+    }
+
+    function openCheckoutModal() {
+        if (!cartItems.length) {
+            showToastMessage("🛒 Кошик порожній");
+            return;
+        }
+
+        renderCheckoutSummary();
+        prefillCheckoutForm();
+        syncCheckoutWarehouseField();
+        setCheckoutFeedback("");
+        setCheckoutSubmitting(false);
+        openOverlay(ui.checkoutModal);
+
+        if (requiresNovaPoshtaWarehouse() && ui.checkoutCity?.value.trim()) {
+            scheduleWarehouseLookup(true);
+        }
+
+        window.setTimeout(() => {
+            const firstEmptyField = [
+                ui.checkoutName,
+                ui.checkoutLastName,
+                ui.checkoutPhone,
+                ui.checkoutEmail,
+                ui.checkoutRegion,
+                ui.checkoutCity
+            ].find((field) => field && !field.value.trim());
+
+            (firstEmptyField || ui.checkoutName)?.focus();
+        }, 30);
+    }
+
+    function closeCheckoutModal() {
+        closeOverlay(ui.checkoutModal);
+        setCheckoutFeedback("");
+        setCheckoutSubmitting(false);
+    }
+
+    function normalizeEmail(email) {
+        return String(email || "").trim().toLowerCase();
+    }
+
+    function getDisplayName(user) {
+        const source = user && user.name ? user.name : user && user.email ? user.email : "Акаунт";
+        return source.split(" ")[0];
+    }
+
+    function getDeliveryLabel(value) {
+        const labels = {
+            "nova-poshta-warehouse": "Нова пошта у відділення",
+            "nova-poshta-courier": "Нова пошта кур'єром",
+            "store-pickup": "Самовивіз"
+        };
+
+        return labels[value] || value || "-";
+    }
+
+    function getPaymentLabel(value) {
+        const labels = {
+            card: "Оплата карткою",
+            "cash-on-delivery": "Післяплата",
+            "bank-transfer": "Безготівковий розрахунок"
+        };
+
+        return labels[value] || value || "-";
+    }
+
+    async function fetchNovaPoshtaWarehouses(city, region = "", limit = 60, options = {}) {
+        const params = new URLSearchParams({
+            city: city.trim(),
+            region: String(region || "").trim(),
+            limit: String(limit)
+        });
+        const { signal } = options;
+
+        try {
+            const response = await fetch(`${NOVA_POSHTA_WAREHOUSES_ENDPOINT}?${params.toString()}`, { signal });
+            const responseText = await response.text();
+            let responseData = null;
+
+            try {
+                responseData = responseText ? JSON.parse(responseText) : null;
+            } catch (error) {
+                responseData = null;
+            }
+
+            if (!response.ok) {
+                throw new Error(responseData?.error || "Не вдалося завантажити відділення Нової пошти.");
+            }
+
+            return Array.isArray(responseData?.warehouses) ? responseData.warehouses : [];
+        } catch (error) {
+            if (error?.name === "AbortError") {
+                throw error;
+            }
+
+            const isNetworkFailure = error instanceof TypeError || /Failed to fetch/i.test(String(error?.message || ""));
+            const isSecurePage = window.location.protocol === "https:";
+
+            if (isNetworkFailure && isSecurePage) {
+                throw new Error("Браузер заблокував запит до локального сервера. Відкрийте сайт через http://localhost або file://.");
+            }
+
+            if (isNetworkFailure) {
+                throw new Error("Не вдалося підключитися до локального сервера Нової пошти на 127.0.0.1:8790.");
+            }
+
+            throw error;
+        }
+    }
+
+    async function loadWarehousesForCity(city, options = {}) {
+        if (!ui.checkoutWarehouse || !ui.checkoutWarehouseField || !requiresNovaPoshtaWarehouse()) {
+            return;
+        }
+
+        const normalizedCity = String(city || "").trim();
+        const normalizedRegion = String(ui.checkoutRegion?.value || "").trim();
+        const cacheKey = getWarehouseCacheKey(normalizedCity, normalizedRegion);
+        const { force = false } = options;
+
+        if (normalizedCity.length < WAREHOUSE_MIN_CITY_LENGTH) {
+            abortWarehouseLookup();
+            lastLoadedWarehouseCity = "";
+            clearCheckoutWarehouseOptions("Спочатку введіть місто");
+            setCheckoutWarehouseHint("Введіть місто, і ми підтягнемо список відділень Нової пошти.");
+            return;
+        }
+
+        if (!force && lastLoadedWarehouseCity === cacheKey && ui.checkoutWarehouse.options.length > 1) {
+            return;
+        }
+
+        const cachedWarehouses = getCachedWarehouses(normalizedCity, normalizedRegion);
+        if (cachedWarehouses) {
+            lastLoadedWarehouseCity = cacheKey;
+            renderCheckoutWarehouseOptions(cachedWarehouses, ui.checkoutWarehouse.value);
+            ui.checkoutWarehouse.disabled = false;
+            setCheckoutWarehouseHint(`Loaded ${cachedWarehouses.length} branches for ${normalizedCity}.`, "success");
+            return;
+        }
+
+        const requestId = ++warehouseLookupRequestId;
+        const previousValue = ui.checkoutWarehouse.value;
+        abortWarehouseLookup();
+        const controller = new AbortController();
+        activeWarehouseLookupController = controller;
+
+        ui.checkoutWarehouse.disabled = true;
+        clearCheckoutWarehouseOptions("Завантажуємо відділення...");
+        setCheckoutWarehouseHint("Завантажуємо список відділень Нової пошти...");
+
+        try {
+            const warehouses = await fetchNovaPoshtaWarehouses(normalizedCity, normalizedRegion, 60, { signal: controller.signal });
+            if (activeWarehouseLookupController === controller) {
+                activeWarehouseLookupController = null;
+            }
+
+            if (requestId !== warehouseLookupRequestId || controller.signal.aborted) {
+                return;
+            }
+
+            lastLoadedWarehouseCity = cacheKey;
+            cacheWarehouses(normalizedCity, normalizedRegion, warehouses);
+
+            if (!warehouses.length) {
+                clearCheckoutWarehouseOptions("Відділення не знайдено");
+                setCheckoutWarehouseHint("За цим містом відділення не знайдено. Перевірте написання міста.", "error");
+                ui.checkoutWarehouse.disabled = false;
+                return;
+            }
+
+            ui.checkoutWarehouse.innerHTML = `<option value="">Оберіть відділення</option>`;
+            warehouses.forEach((warehouse) => {
+                const option = document.createElement("option");
+                option.value = warehouse.ref;
+                option.textContent = warehouse.label || warehouse.shortAddress || "Відділення Нової пошти";
+                option.dataset.label = warehouse.label || "";
+                option.dataset.shortAddress = warehouse.shortAddress || "";
+                option.dataset.number = warehouse.number || "";
+                ui.checkoutWarehouse.appendChild(option);
+            });
+
+            if (previousValue && [...ui.checkoutWarehouse.options].some((option) => option.value === previousValue)) {
+                ui.checkoutWarehouse.value = previousValue;
+            }
+
+            ui.checkoutWarehouse.disabled = false;
+            setCheckoutWarehouseHint(`Знайдено ${warehouses.length} відділень для міста ${normalizedCity}.`, "success");
+        } catch (error) {
+            if (activeWarehouseLookupController === controller) {
+                activeWarehouseLookupController = null;
+            }
+
+            if (error?.name === "AbortError") {
+                return;
+            }
+
+            if (requestId !== warehouseLookupRequestId) {
+                return;
+            }
+
+            lastLoadedWarehouseCity = "";
+            clearCheckoutWarehouseOptions("Не вдалося завантажити відділення");
+            setCheckoutWarehouseHint(error.message || "Не вдалося завантажити список відділень.", "error");
+            ui.checkoutWarehouse.disabled = false;
+        }
+    }
+
+    function scheduleWarehouseLookup(force = false) {
+        if (!requiresNovaPoshtaWarehouse()) {
+            return;
+        }
+
+        window.clearTimeout(warehouseLookupTimer);
+        warehouseLookupTimer = window.setTimeout(() => {
+            loadWarehousesForCity(ui.checkoutCity?.value || "", { force });
+        }, force ? 0 : 420);
+    }
+
+    function setAuthFeedback(message = "", type = "") {
+        if (!ui.authFeedback) {
+            return;
+        }
+
+        ui.authFeedback.textContent = message;
+        ui.authFeedback.className = "auth-feedback";
+        if (type) {
+            ui.authFeedback.classList.add(type);
+        }
+    }
+
+    function switchAuthView(view) {
+        preferredAuthView = view;
+
+        ui.authTabs.forEach((tab) => {
+            tab.classList.toggle("active", tab.dataset.authView === view);
+        });
+
+        const showLogin = view === "login";
+        ui.loginForm.classList.toggle("active", showLogin);
+        ui.registerForm.classList.toggle("active", !showLogin);
+    }
+
+    function syncAuthModal() {
+        const isLoggedIn = Boolean(currentUser);
+        ui.authGuestView.classList.toggle("hidden", isLoggedIn);
+        ui.authAccountView.classList.toggle("hidden", !isLoggedIn);
+
+        if (!isLoggedIn) {
+            switchAuthView(preferredAuthView);
+        }
+    }
+
+    function openAuthModal(view = "login") {
+        preferredAuthView = view;
+        syncAuthModal();
+        setAuthFeedback("");
+        openOverlay(ui.authModal);
+    }
+
+    function closeAuthModal() {
+        closeOverlay(ui.authModal);
+        setAuthFeedback("");
+    }
+
+    function updateAccountUi() {
+        ui.accountLabel.textContent = currentUser ? getDisplayName(currentUser) : "Увійти";
+        ui.accountBtn.setAttribute(
+            "aria-label",
+            currentUser ? `Відкрити акаунт ${getDisplayName(currentUser)}` : "Відкрити вхід або реєстрацію"
+        );
+
+        ui.accountNameValue.textContent = currentUser ? currentUser.name : "-";
+        ui.accountEmailValue.textContent = currentUser ? currentUser.email : "-";
+        ui.accountPhoneValue.textContent = currentUser && currentUser.phone ? currentUser.phone : "Не вказано";
+
+        syncAuthModal();
+        if (ui.cabinetModal?.classList.contains("open")) {
+            renderCabinet();
+        }
+    }
+
+    async function hashPassword(password) {
+        const value = String(password || "");
+        const bytes = new TextEncoder().encode(value);
+
+        if (window.crypto && window.crypto.subtle) {
+            const hashBuffer = await window.crypto.subtle.digest("SHA-256", bytes);
+            return Array.from(new Uint8Array(hashBuffer))
+                .map((byte) => byte.toString(16).padStart(2, "0"))
+                .join("");
+        }
+
+        return Array.from(bytes)
+            .map((byte, index) => ((byte + 17) * (index + 1)).toString(16))
+            .join("");
+    }
+
+    function requestToPromise(request) {
+        return new Promise((resolve, reject) => {
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error || new Error("Помилка запиту до бази даних"));
+        });
+    }
+
+    function transactionToPromise(transaction) {
+        return new Promise((resolve, reject) => {
+            transaction.oncomplete = () => resolve();
+            transaction.onerror = () => reject(transaction.error || new Error("Помилка транзакції бази даних"));
+            transaction.onabort = () => reject(transaction.error || new Error("Транзакцію перервано"));
+        });
+    }
+
+    function openAccountsDb() {
+        if (authDbPromise) {
+            return authDbPromise;
+        }
+
+        authDbPromise = new Promise((resolve, reject) => {
+            if (!("indexedDB" in window)) {
+                reject(new Error("Браузер не підтримує IndexedDB"));
+                return;
+            }
+
+            const request = window.indexedDB.open(DB_NAME, DB_VERSION);
+
+            request.onupgradeneeded = () => {
+                const db = request.result;
+                if (!db.objectStoreNames.contains(USERS_STORE)) {
+                    db.createObjectStore(USERS_STORE, { keyPath: "email" });
+                }
+            };
+
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error || new Error("Не вдалося відкрити базу користувачів"));
+        });
+
+        return authDbPromise;
+    }
+
+    async function getUserByEmail(email) {
+        const db = await openAccountsDb();
+        const transaction = db.transaction(USERS_STORE, "readonly");
+        const store = transaction.objectStore(USERS_STORE);
+        const user = await requestToPromise(store.get(normalizeEmail(email)));
+        await transactionToPromise(transaction);
+        return user || null;
+    }
+
+    async function addUser(user) {
+        const db = await openAccountsDb();
+        const transaction = db.transaction(USERS_STORE, "readwrite");
+        transaction.objectStore(USERS_STORE).add(user);
+        await transactionToPromise(transaction);
+    }
+
+    async function saveUser(user) {
+        const db = await openAccountsDb();
+        const transaction = db.transaction(USERS_STORE, "readwrite");
+        transaction.objectStore(USERS_STORE).put(user);
+        await transactionToPromise(transaction);
+    }
+
+    function prefillSubscriberEmail(email) {
+        if (!ui.subscribeEmail || !email) {
+            return;
+        }
+        ui.subscribeEmail.value = email;
+    }
+
+    function clearSubscriberEmailIfMatches(email) {
+        if (!ui.subscribeEmail || !email) {
+            return;
+        }
+
+        if (normalizeEmail(ui.subscribeEmail.value) === normalizeEmail(email)) {
+            ui.subscribeEmail.value = "";
+        }
+    }
+
+    async function persistCartForCurrentUser(items) {
+        if (!currentUser?.email) {
+            saveGuestCart(items);
+            return;
+        }
+
+        const latestUser = await getUserByEmail(currentUser.email);
+        if (!latestUser) {
+            throw new Error("Не вдалося знайти акаунт для збереження кошика");
+        }
+
+        const updatedUser = {
+            ...latestUser,
+            cart: sanitizeCartItems(items)
+        };
+
+        await saveUser(updatedUser);
+        currentUser = updatedUser;
+    }
+
+    async function syncCartWithCurrentUser(options = {}) {
+        const { mergeGuestCart = false } = options;
+
+        if (!currentUser) {
+            cartItems = loadGuestCart();
+            renderCart();
+            return;
+        }
+
+        const accountCart = sanitizeCartItems(currentUser.cart);
+        const guestCart = mergeGuestCart ? loadGuestCart() : [];
+        const nextCart = mergeGuestCart ? mergeCartItems(accountCart, guestCart) : accountCart;
+
+        cartItems = nextCart;
+
+        if (mergeGuestCart && guestCart.length) {
+            await persistCartForCurrentUser(nextCart);
+            localStorage.removeItem(GUEST_CART_KEY);
+        }
+
+        renderCart();
+    }
+
+    async function persistSession(user, options = {}) {
+        currentUser = {
+            ...user,
+            cart: sanitizeCartItems(user?.cart)
+        };
+        localStorage.setItem(SESSION_KEY, user.email);
+        prefillSubscriberEmail(user.email);
+        updateAccountUi();
+        await syncCartWithCurrentUser(options);
+    }
+
+    function clearSession() {
+        const previousEmail = currentUser ? currentUser.email : "";
+        currentUser = null;
+        localStorage.removeItem(SESSION_KEY);
+        clearSubscriberEmailIfMatches(previousEmail);
+        updateAccountUi();
+        cartItems = loadGuestCart();
+        renderCart();
+    }
+
+    async function restoreSession() {
+        const savedEmail = localStorage.getItem(SESSION_KEY);
+        if (!savedEmail) {
+            updateAccountUi();
+            return;
+        }
+
+        try {
+            const savedUser = await getUserByEmail(savedEmail);
+            if (!savedUser) {
+                localStorage.removeItem(SESSION_KEY);
+                updateAccountUi();
+                return;
+            }
+
+            currentUser = {
+                ...savedUser,
+                cart: sanitizeCartItems(savedUser?.cart)
+            };
+            prefillSubscriberEmail(savedUser.email);
+            await syncCartWithCurrentUser();
+        } catch (error) {
+            console.error("Не вдалося відновити сесію:", error);
+        }
+
+        updateAccountUi();
+    }
+
+    async function updateCurrentUserProfileFromCheckout(customer) {
+        if (!currentUser?.email || !customer) {
+            return;
+        }
+
+        const latestUser = await getUserByEmail(currentUser.email);
+        if (!latestUser) {
+            return;
+        }
+
+        const updatedUser = {
+            ...latestUser,
+            name: customer.name || latestUser.name,
+            lastName: customer.lastName || latestUser.lastName || "",
+            phone: customer.phone || latestUser.phone,
+            region: customer.region || latestUser.region || "",
+            cart: sanitizeCartItems(latestUser.cart)
+        };
+
+        await saveUser(updatedUser);
+        currentUser = updatedUser;
+        updateAccountUi();
+    }
+
+    function buildOrderPayload() {
+        const cartDetailedItems = getCartDetailedItems();
+        const totalPrice = cartDetailedItems.reduce((sum, item) => sum + item.subtotal, 0);
+        const formData = new FormData(ui.checkoutForm);
+        const selectedWarehouseOption = ui.checkoutWarehouse?.selectedOptions?.[0] || null;
+        const selectedDelivery = String(formData.get("delivery") || "");
+        const warehouseRef = requiresNovaPoshtaWarehouse(selectedDelivery) ? String(formData.get("warehouseRef") || "") : "";
+        const warehouseLabel = requiresNovaPoshtaWarehouse(selectedDelivery) && selectedWarehouseOption && selectedWarehouseOption.value
+            ? selectedWarehouseOption.textContent.trim()
+            : "";
+
+        return {
+            createdAt: new Date().toISOString(),
+            source: "website",
+            customer: {
+                name: String(formData.get("name") || "").trim(),
+                lastName: String(formData.get("lastName") || "").trim(),
+                phone: String(formData.get("phone") || "").trim(),
+                email: normalizeEmail(formData.get("email")),
+                region: String(formData.get("region") || "").trim(),
+                city: String(formData.get("city") || "").trim(),
+                delivery: selectedDelivery,
+                warehouseRef,
+                warehouseLabel,
+                payment: String(formData.get("payment") || ""),
+                comment: String(formData.get("comment") || "").trim()
+            },
+            account: currentUser ? {
+                email: currentUser.email,
+                name: currentUser.name || "",
+                lastName: currentUser.lastName || "",
+                phone: currentUser.phone || "",
+                region: currentUser.region || ""
+            } : null,
+            totals: {
+                quantity: getCartTotalCount(),
+                totalPrice,
+                formattedTotal: formatPrice(totalPrice)
+            },
+            items: cartDetailedItems.map((item) => ({
+                productId: item.product.id,
+                name: item.product.name,
+                category: item.product.categoryLabel,
+                quantity: item.quantity,
+                unitPrice: item.product.numericPrice,
+                subtotal: item.subtotal,
+                formattedUnitPrice: item.product.price,
+                formattedSubtotal: formatPrice(item.subtotal)
+            }))
+        };
+    }
+
+    async function submitOrderRequest(orderPayload) {
+        try {
+            const response = await fetch(ORDER_API_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(orderPayload)
+            });
+
+            const responseText = await response.text();
+            let responseData = null;
+
+            try {
+                responseData = responseText ? JSON.parse(responseText) : null;
+            } catch (error) {
+                responseData = null;
+            }
+
+            if (!response.ok) {
+                throw new Error(responseData?.error || "Сервер замовлень недоступний. Запустіть telegram-order-server.ps1");
+            }
+
+            return responseData || {};
+        } catch (error) {
+            const isNetworkFailure = error instanceof TypeError || /Failed to fetch/i.test(String(error?.message || ""));
+            const isSecurePage = window.location.protocol === "https:";
+
+            if (isNetworkFailure && isSecurePage) {
+                throw new Error("Браузер заблокував запит до локального сервера. Відкрийте сайт через http://localhost або file://, або запустіть сервер замовлень у тому ж локальному середовищі.");
+            }
+
+            if (isNetworkFailure) {
+                throw new Error("Не вдалося підключитися до сервера замовлень. Перевірте, що запущено telegram-order-server.ps1 на 127.0.0.1:8790.");
+            }
+
+            throw error;
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        return;
+        if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+            let btn = e.target;
+            if(btn.classList && !btn.classList.contains('add-to-cart')) btn = btn.closest('.add-to-cart');
+            if(btn) {
+                const productName = btn.getAttribute('data-name') || "товар";
+                showToastMessage(`🛒 ${productName} додано в кошик!`);
+                btn.style.transform = "scale(0.96)";
+                setTimeout(() => { btn.style.transform = ""; }, 150);
+            }
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        const button = event.target.closest(".add-to-cart");
+        if (!button) {
+            return;
+        }
+
+        const productId = button.getAttribute("data-product-id");
+        if (!productId) {
+            return;
+        }
+
+        addToCart(productId);
+        button.style.transform = "scale(0.96)";
+        window.setTimeout(() => {
+            button.style.transform = "";
+        }, 150);
+    });
+
+    if (ui.productTabs) {
+        ui.productTabs.addEventListener("click", (event) => {
+            const tab = event.target.closest("[data-product-tab]");
+            if (!tab) {
+                return;
+            }
+
+            setActiveProductTab(tab.getAttribute("data-product-tab") || "all");
+        });
+    }
+
+    if (ui.productSubtabs) {
+        ui.productSubtabs.addEventListener("click", (event) => {
+            const tab = event.target.closest("[data-product-subtab]");
+            if (!tab) {
+                return;
+            }
+            setActiveProductSubtab(tab.getAttribute("data-product-subtab") || "all");
+        });
+    }
+
+    if (ui.loadMoreProductsBtn) {
+        ui.loadMoreProductsBtn.addEventListener("click", () => {
+            renderedProductsCount += PRODUCTS_PAGE_SIZE;
+            renderProducts();
+        });
+    }
+
+    if (ui.productGrid) {
+        ui.productGrid.addEventListener("click", (event) => {
+            if (event.target.closest(".add-to-cart")) {
+                return;
+            }
+
+            const card = event.target.closest("[data-product-id]");
+            if (card) {
+                openProductModal(card.getAttribute("data-product-id"));
+            }
+        });
+
+        ui.productGrid.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") {
+                return;
+            }
+
+            if (event.target.closest(".add-to-cart")) {
+                return;
+            }
+
+            const card = event.target.closest("[data-product-id]");
+            if (card) {
+                event.preventDefault();
+                openProductModal(card.getAttribute("data-product-id"));
+            }
+        });
+    }
+
+    const subBtn = document.getElementById("subscribeBtn");
+    if (subBtn) {
+        subBtn.addEventListener("click", () => {
+            return;
+            const emailInput = document.getElementById("subscribeEmail");
+            const email = emailInput.value.trim();
+            if (email && email.includes("@") && email.includes(".")) {
+                showToastMessage("📧 Дякуємо за підписку! Знижка чекає на вас на пошті.");
+                emailInput.value = "";
+            } else {
+                showToastMessage("⚠️ Введіть коректний email");
+            }
+        });
+    }
+
+    if (ui.subscribeBtn) {
+        ui.subscribeBtn.addEventListener("click", () => {
+            const email = ui.subscribeEmail.value.trim();
+            if (email && email.includes("@") && email.includes(".")) {
+                showToastMessage("📧 Дякуємо за підписку! Знижка вже чекає у вашій пошті.");
+                ui.subscribeEmail.value = currentUser ? currentUser.email : "";
+            } else {
+                showToastMessage("⚠️ Введіть коректний e-mail");
+            }
+        });
+    }
+
+    const headerIcons = [];
+    headerIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            const iconClass = e.target.classList;
+            if (iconClass.contains('fa-heart')) showToastMessage("❤️ Обрані товари");
+            else if (iconClass.contains('fa-shopping-cart')) showToastMessage("🛒 Кошик — товари вже можна додавати!");
+            else if (iconClass.contains('fa-user')) showToastMessage("👤 Особистий кабінет скоро з'явиться");
+            else if (iconClass.contains('fa-search')) showToastMessage("🔍 Пошук товарів з'явиться найближчим часом");
+        });
+    });
+
+    if (ui.searchBtn) {
+        ui.searchBtn.addEventListener("click", () => {
+            openSearchModal();
+        });
+    }
+
+    if (ui.favoritesBtn) {
+        ui.favoritesBtn.addEventListener("click", () => {
+            showToastMessage("❤️ Обрані товари зберігатимуться тут");
+        });
+    }
+
+    if (ui.cartBtn) {
+        ui.cartBtn.addEventListener("click", () => {
+            openCartModal();
+        });
+    }
+
+    if (ui.accountBtn) {
+        ui.accountBtn.addEventListener("click", () => {
+            openAuthModal(currentUser ? preferredAuthView : "login");
+        });
+    }
+
+    if (ui.cabinetNavLink) {
+        ui.cabinetNavLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            openCabinetModal();
+        });
+    }
+
+    if (ui.cabinetLoginBtn) {
+        ui.cabinetLoginBtn.addEventListener("click", () => {
+            closeOverlay(ui.cabinetModal);
+            openAuthModal("login");
+        });
+    }
+
+    if (ui.authCloseBtn) {
+        ui.authCloseBtn.addEventListener("click", closeAuthModal);
+    }
+
+    if (ui.authModal) {
+        ui.authModal.addEventListener("click", (event) => {
+            if (event.target === ui.authModal) {
+                closeAuthModal();
+            }
+        });
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") {
+            return;
+        }
+
+        if (ui.orderSuccessModal?.classList.contains("open")) {
+            closeOrderSuccessModal();
+            return;
+        }
+
+        if (ui.productModal?.classList.contains("open")) {
+            closeProductModal();
+            return;
+        }
+
+        if (ui.checkoutModal?.classList.contains("open")) {
+            closeCheckoutModal();
+            return;
+        }
+
+        if (ui.cartModal?.classList.contains("open")) {
+            closeCartModal();
+            return;
+        }
+
+        if (ui.cabinetModal?.classList.contains("open")) {
+            closeOverlay(ui.cabinetModal);
+            return;
+        }
+
+        if (ui.searchModal?.classList.contains("open")) {
+            closeSearchModal();
+            return;
+        }
+
+        if (ui.authModal && ui.authModal.classList.contains("open")) {
+            closeAuthModal();
+        }
+    });
+
+    ui.authTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            switchAuthView(tab.dataset.authView);
+            setAuthFeedback("");
+        });
+    });
+
+    ui.switchAuthButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            switchAuthView(button.dataset.switchAuth);
+            setAuthFeedback("");
+        });
+    });
+
+    if (ui.loginForm) {
+        ui.loginForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            setAuthFeedback("");
+
+            const formData = new FormData(ui.loginForm);
+            const email = normalizeEmail(formData.get("email"));
+            const password = String(formData.get("password") || "");
+
+            if (!email || !password) {
+                setAuthFeedback("Введіть e-mail і пароль.", "error");
+                return;
+            }
+
+            try {
+                const user = await getUserByEmail(email);
+                if (!user) {
+                    setAuthFeedback("Акаунт з таким e-mail не знайдено.", "error");
+                    return;
+                }
+
+                const passwordHash = await hashPassword(password);
+                if (user.passwordHash !== passwordHash) {
+                    setAuthFeedback("Невірний пароль.", "error");
+                    return;
+                }
+
+                await persistSession(user, { mergeGuestCart: true });
+                ui.loginForm.reset();
+                setAuthFeedback("Вхід виконано успішно.", "success");
+                showToastMessage(`👋 Вітаємо, ${getDisplayName(user)}!`);
+            } catch (error) {
+                console.error("Помилка входу:", error);
+                setAuthFeedback("Не вдалося увійти. Спробуйте ще раз.", "error");
+            }
+        });
+    }
+
+    if (ui.registerForm) {
+        ui.registerForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            setAuthFeedback("");
+
+            const formData = new FormData(ui.registerForm);
+            const name = String(formData.get("name") || "").trim();
+            const phone = String(formData.get("phone") || "").trim();
+            const email = normalizeEmail(formData.get("email"));
+            const password = String(formData.get("password") || "");
+            const passwordConfirm = String(formData.get("passwordConfirm") || "");
+
+            if (name.length < 2) {
+                setAuthFeedback("Вкажіть ім'я щонайменше з 2 символів.", "error");
+                return;
+            }
+
+            if (!email || !email.includes("@") || !email.includes(".")) {
+                setAuthFeedback("Введіть коректний e-mail.", "error");
+                return;
+            }
+
+            if (password.length < 6) {
+                setAuthFeedback("Пароль має містити щонайменше 6 символів.", "error");
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                setAuthFeedback("Паролі не збігаються.", "error");
+                return;
+            }
+
+            try {
+                const existingUser = await getUserByEmail(email);
+                if (existingUser) {
+                    setAuthFeedback("Користувач з таким e-mail уже зареєстрований.", "error");
+                    return;
+                }
+
+                const user = {
+                    name,
+                    phone,
+                    email,
+                    passwordHash: await hashPassword(password),
+                    cart: [],
+                    createdAt: new Date().toISOString()
+                };
+
+                await addUser(user);
+                await persistSession(user, { mergeGuestCart: true });
+                ui.registerForm.reset();
+                setAuthFeedback("Акаунт створено успішно.", "success");
+                showToastMessage(`✅ Акаунт ${getDisplayName(user)} створено`);
+            } catch (error) {
+                console.error("Помилка реєстрації:", error);
+                setAuthFeedback("Не вдалося створити акаунт. Спробуйте ще раз.", "error");
+            }
+        });
+    }
+
+    if (ui.changeAccountBtn) {
+        ui.changeAccountBtn.addEventListener("click", () => {
+            clearSession();
+            switchAuthView("login");
+            setAuthFeedback("Ви вийшли з поточного акаунта. Тепер можна увійти в інший.", "success");
+        });
+    }
+
+    if (ui.authLogoutBtn) {
+        ui.authLogoutBtn.addEventListener("click", () => {
+            const name = currentUser ? getDisplayName(currentUser) : "Користувач";
+            clearSession();
+            closeAuthModal();
+            showToastMessage(`👋 ${name}, ви вийшли з акаунта`);
+        });
+    }
+
+    document.querySelectorAll("[data-close-modal]").forEach((button) => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-close-modal");
+            const modal = document.getElementById(modalId);
+
+            if (modalId === "checkoutModal") {
+                if (isSubmittingOrder) {
+                    return;
+                }
+                closeCheckoutModal();
+                return;
+            }
+
+            closeOverlay(modal);
+
+            if (modalId === "productModal") {
+                clearProductHash();
+                activeProductId = null;
+            }
+        });
+    });
+
+    if (ui.orderSuccessOkBtn) {
+        ui.orderSuccessOkBtn.addEventListener("click", () => {
+            closeOrderSuccessModal();
+        });
+    }
+
+    [ui.searchModal, ui.cartModal, ui.checkoutModal, ui.orderSuccessModal, ui.cabinetModal, ui.productModal].forEach((modal) => {
+        if (!modal) {
+            return;
+        }
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                if (modal === ui.checkoutModal && isSubmittingOrder) {
+                    return;
+                }
+
+                if (modal === ui.checkoutModal) {
+                    closeCheckoutModal();
+                    return;
+                }
+
+                closeOverlay(modal);
+                if (modal === ui.productModal) {
+                    clearProductHash();
+                    activeProductId = null;
+                }
+            }
+        });
+    });
+
+    if (ui.searchInput) {
+        ui.searchInput.addEventListener("input", (event) => {
+            renderSearchResults(event.target.value);
+        });
+
+        ui.searchInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const firstResult = ui.searchResults?.querySelector("[data-open-product]");
+                firstResult?.click();
+            }
+        });
+    }
+
+    if (ui.searchResults) {
+        ui.searchResults.addEventListener("click", (event) => {
+            const resultCard = event.target.closest("[data-open-product]");
+            if (!resultCard) {
+                return;
+            }
+
+            closeSearchModal();
+            openProductModal(resultCard.getAttribute("data-open-product"));
+        });
+
+        ui.searchResults.addEventListener("keydown", (event) => {
+            const resultCard = event.target.closest("[data-open-product]");
+            if (!resultCard) {
+                return;
+            }
+
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                closeSearchModal();
+                openProductModal(resultCard.getAttribute("data-open-product"));
+            }
+        });
+    }
+
+    if (ui.cartList) {
+        ui.cartList.addEventListener("click", (event) => {
+            const qtyButton = event.target.closest(".cart-qty-btn");
+            const removeButton = event.target.closest(".cart-remove-btn");
+
+            if (qtyButton) {
+                const productId = qtyButton.getAttribute("data-product-id");
+                const action = qtyButton.getAttribute("data-action");
+                const currentItem = cartItems.find((item) => item.productId === productId);
+                const currentQty = currentItem?.quantity || 0;
+                setCartItemQuantity(productId, action === "increase" ? currentQty + 1 : currentQty - 1);
+                return;
+            }
+
+            if (removeButton) {
+                setCartItemQuantity(removeButton.getAttribute("data-product-id"), 0);
+            }
+        });
+    }
+
+    if (ui.clearCartBtn) {
+        ui.clearCartBtn.addEventListener("click", () => {
+            cartItems = [];
+            saveCart();
+            renderCart();
+            showToastMessage("🧹 Кошик очищено");
+        });
+    }
+
+    if (ui.checkoutBtn) {
+        ui.checkoutBtn.addEventListener("click", () => {
+            if (!cartItems.length) {
+                showToastMessage("🛒 Кошик порожній");
+                return;
+            }
+
+            openCheckoutModal();
+        });
+    }
+
+    if (ui.checkoutBackToCartBtn) {
+        ui.checkoutBackToCartBtn.addEventListener("click", () => {
+            closeCheckoutModal();
+            openCartModal();
+        });
+    }
+
+    if (ui.checkoutDelivery) {
+        ui.checkoutDelivery.addEventListener("change", () => {
+            syncCheckoutWarehouseField();
+            if (requiresNovaPoshtaWarehouse()) {
+                scheduleWarehouseLookup(true);
+            }
+        });
+    }
+
+    if (ui.checkoutCity) {
+        ui.checkoutCity.addEventListener("input", () => {
+            if (!requiresNovaPoshtaWarehouse()) {
+                return;
+            }
+
+            lastLoadedWarehouseCity = "";
+            clearCheckoutWarehouseOptions("Оновлюємо список відділень...");
+            setCheckoutWarehouseHint("Оновлюємо список відділень за вказаним містом...");
+            scheduleWarehouseLookup();
+        });
+
+        ui.checkoutCity.addEventListener("blur", () => {
+            if (requiresNovaPoshtaWarehouse()) {
+                scheduleWarehouseLookup(true);
+            }
+        });
+    }
+
+    if (ui.checkoutRegion) {
+        ui.checkoutRegion.addEventListener("input", () => {
+            if (!requiresNovaPoshtaWarehouse()) {
+                return;
+            }
+
+            lastLoadedWarehouseCity = "";
+            scheduleWarehouseLookup();
+        });
+    }
+
+    if (ui.checkoutForm) {
+        ui.checkoutForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            if (isSubmittingOrder) {
+                return;
+            }
+
+            if (!cartItems.length) {
+                setCheckoutFeedback("У кошику немає товарів для оформлення.", "error");
+                return;
+            }
+
+            const orderPayload = buildOrderPayload();
+            const { name, lastName, phone, email, region, city } = orderPayload.customer;
+
+            if (name.length < 2) {
+                setCheckoutFeedback("Вкажіть ім'я щонайменше з 2 символів.", "error");
+                ui.checkoutName?.focus();
+                return;
+            }
+
+            if (lastName.length < 2) {
+                setCheckoutFeedback("Вкажіть прізвище щонайменше з 2 символів.", "error");
+                ui.checkoutLastName?.focus();
+                return;
+            }
+
+            if (phone.replace(/[^\d+]/g, "").length < 10) {
+                setCheckoutFeedback("Вкажіть коректний телефон для зв'язку.", "error");
+                ui.checkoutPhone?.focus();
+                return;
+            }
+
+            if (!email || !email.includes("@") || !email.includes(".")) {
+                setCheckoutFeedback("Введіть коректний e-mail.", "error");
+                ui.checkoutEmail?.focus();
+                return;
+            }
+
+            if (region.length < 2) {
+                setCheckoutFeedback("Вкажіть область доставки.", "error");
+                ui.checkoutRegion?.focus();
+                return;
+            }
+
+            if (city.length < 2) {
+                setCheckoutFeedback("Вкажіть місто доставки.", "error");
+                ui.checkoutCity?.focus();
+                return;
+            }
+
+            if (requiresNovaPoshtaWarehouse(orderPayload.customer.delivery) && !orderPayload.customer.warehouseRef) {
+                setCheckoutFeedback("Оберіть відділення Нової пошти зі списку.", "error");
+                ui.checkoutWarehouse?.focus();
+                return;
+            }
+
+            setCheckoutFeedback("Надсилаємо замовлення в Telegram...", "success");
+            setCheckoutSubmitting(true);
+
+            try {
+                const response = await submitOrderRequest(orderPayload);
+                await updateCurrentUserProfileFromCheckout(orderPayload.customer);
+                rememberOrder(orderPayload, response);
+                cartItems = [];
+                saveCart();
+                renderCart();
+                renderCheckoutSummary();
+                ui.checkoutForm.reset();
+                lastLoadedWarehouseCity = "";
+                clearCheckoutWarehouseOptions("Спочатку введіть місто");
+                setCheckoutWarehouseHint("Введіть місто, і ми підтягнемо список відділень Нової пошти.");
+                prefillCheckoutForm();
+                syncCheckoutWarehouseField();
+                closeCheckoutModal();
+                closeCartModal();
+                openOrderSuccessModal(response.orderId);
+                showToastMessage(`✅ Замовлення ${response.orderId || ""} прийнято`.trim(), 5500);
+                syncOrderStatusesFromServer().then(() => {
+                    if (ui.cabinetModal?.classList.contains("open")) {
+                        renderCabinet();
+                    }
+                });
+            } catch (error) {
+                console.error("Помилка оформлення:", error);
+                setCheckoutFeedback(error.message || "Не вдалося надіслати замовлення.", "error");
+            } finally {
+                setCheckoutSubmitting(false);
+            }
+        });
+    }
+
+    if (ui.productModalAddBtn) {
+        ui.productModalAddBtn.addEventListener("click", () => {
+            const productId = ui.productModalAddBtn.getAttribute("data-product-id");
+            if (!productId) {
+                return;
+            }
+
+            addToCart(productId);
+            openCartModal();
+        });
+    }
+
+    if (ui.productModalBackBtn) {
+        ui.productModalBackBtn.addEventListener("click", () => {
+            closeProductModal();
+            scrollToBlock(".products");
+        });
+    }
+
+    window.addEventListener("hashchange", () => {
+        if (window.location.hash.startsWith(PRODUCT_HASH_PREFIX)) {
+            const productId = window.location.hash.replace(PRODUCT_HASH_PREFIX, "");
+            if (productId && productId !== activeProductId) {
+                openProductModal(productId);
+            }
+            return;
+        }
+
+        if (ui.productModal?.classList.contains("open")) {
+            closeOverlay(ui.productModal);
+            activeProductId = null;
+        }
+    });
+
+    function scrollToBlock(selector) {
+        const block = document.querySelector(selector);
+        if (block) {
+            block.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    function openExternalLink(url) {
+        window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function makeInteractive(element, handler, ariaLabel) {
+        if (!element) {
+            return;
+        }
+
+        element.classList.add("is-clickable");
+
+        if (!["A", "BUTTON", "INPUT"].includes(element.tagName)) {
+            element.tabIndex = 0;
+            element.setAttribute("role", "button");
+        }
+
+        if (ariaLabel) {
+            element.setAttribute("aria-label", ariaLabel);
+        }
+
+        element.addEventListener("click", handler);
+        element.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handler(event);
+            }
+        });
+    }
+
+    function highlightProductsByCategory(category) {
+        setActiveProductTab(category);
+
+        const firstCard = document.querySelector(".product-card");
+        if (firstCard) {
+            firstCard.classList.add("is-highlighted");
+            window.setTimeout(() => firstCard.classList.remove("is-highlighted"), 1800);
+        }
+    }
+
+    function bindPageInteractivity() {
+        makeInteractive(document.querySelector(".logo"), () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            showToastMessage("🏠 Повернулися на головний екран");
+        }, "Повернутися на головну");
+
+        const heroButton = document.querySelector(".hero .btn");
+        if (heroButton) {
+            heroButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                scrollToBlock(".products");
+                showToastMessage("🔥 Відкрили каталог хітів");
+            });
+        }
+
+        [
+            { selector: ".hero-image > i", target: ".products", message: "🏍 Перехід до мототехніки" },
+            { selector: ".hero-image .fa-tractor", target: ".categories", message: "🚜 Перехід до агротоварів" },
+            { selector: ".hero-image .fa-bicycle", target: ".categories", message: "🚲 Перехід до велосипедів" }
+        ].forEach(({ selector, target, message }) => {
+            makeInteractive(document.querySelector(selector), () => {
+                scrollToBlock(target);
+                showToastMessage(message);
+            }, message);
+        });
+
+        [
+            { category: "bike", message: "🚲 Показали велосипедний напрямок" },
+            { category: "moto", message: "🏍 Показали мототехніку" },
+            { category: "agro", message: "🚜 Показали агротовари" },
+            { category: "electro", message: "⚡ Показали електротранспорт" }
+        ].forEach((config, index) => {
+            const card = document.querySelectorAll(".cat-card")[index];
+            makeInteractive(card, () => {
+                scrollToBlock(".products");
+                highlightProductsByCategory(config.category);
+                showToastMessage(config.message);
+            }, card?.querySelector("h3")?.textContent || "Категорія");
+        });
+
+        [
+            "🚚 Доставка по Україні 2-5 днів",
+            "🛠 Сервіс та ремонт доступні після покупки",
+            "💰 Доступна розстрочка 0% і ціни від виробника",
+            "🌱 Ми розвиваємо електротранспорт та eco-напрямок"
+        ].forEach((message, index) => {
+            const item = document.querySelectorAll(".feat-item")[index];
+            makeInteractive(item, () => {
+                showToastMessage(message);
+            }, item?.querySelector("h4")?.textContent || "Перевага");
+        });
+
+        [
+            () => openExternalLink("https://maps.app.goo.gl/GesqDuYBYJszWran6"),
+            () => { window.location.href = "tel:ananimys444"; },
+            () => { window.location.href = "makssuhrov21@gmail.com"; },
+            () => openExternalLink("https://t.me/ananimys444")
+        ].forEach((action, index) => {
+            const item = document.querySelectorAll(".contact-details > div")[index];
+            makeInteractive(item, action, item?.textContent.trim());
+        });
+
+        [
+            "https://instagram.com",
+            "https://t.me",
+            "https://youtube.com"
+        ].forEach((url, index) => {
+            const icon = document.querySelectorAll(".footer .fab")[index];
+            makeInteractive(icon, () => openExternalLink(url), `Соцмережа ${index + 1}`);
+        });
+
+        document.querySelectorAll(".nav-links a").forEach((link, index) => {
+            link.addEventListener("click", () => {
+                const navTargets = [
+                    ".hero",
+                    ".products",
+                    ".products",
+                    ".products",
+                    ".products",
+                    null,
+                    ".contact-section"
+                ];
+
+                if (link.dataset.navAction === "cabinet") {
+                    openCabinetModal();
+                    return;
+                }
+
+                scrollToBlock(navTargets[index] || ".hero");
+            });
+        });
+    }
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            return;
+            const cat = link.innerText.toLowerCase();
+            if (cat.includes('велосипед')) showToastMessage("🚲 Перехід у розділ Велосипеди");
+            else if (cat.includes('мото')) showToastMessage("🏍 Розділ мототехніки — величезний вибір");
+            else if (cat.includes('агро')) showToastMessage("🚜 Агротовари: мотоблоки, культиватори, насоси");
+            else if (cat.includes('електро')) showToastMessage("⚡ Електротранспорт: самокати, електробайки");
+            else showToastMessage("📋 Каталог оновлюється, незабаром ще більше товарів");
+        });
+    });
+
+    console.log("Магазин VeloMotoAgroElectro — українська версія");
+    cartItems = loadCart();
+    renderProductTabs();
+    renderProductSubtabs();
+    renderProducts();
+    renderCart();
+    updateCartBadge();
+    renderSearchResults();
+    bindPageInteractivity();
+    restoreSession();
+
+    if (window.location.hash.startsWith(PRODUCT_HASH_PREFIX)) {
+        const productIdFromHash = window.location.hash.replace(PRODUCT_HASH_PREFIX, "");
+        if (productIdFromHash) {
+            openProductModal(productIdFromHash);
+        }
+    }
+</script>
+</body>
+</html>
